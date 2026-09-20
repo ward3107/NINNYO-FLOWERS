@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0a09" />
+  <meta name="description" content="הצהרת הנגישות של אתר NINNYO FLOWERS — מחויבות לנגישות לפי תקן ישראלי 5568 (WCAG 2.0 AA)." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://ninnyo.vercel.app/accessibility.html" />
+  <title>הצהרת נגישות | NINNYO FLOWERS</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0c0a09; --surface:rgba(255,255,255,.055); --text:#fdf8f2; --muted:#cdbfb2;
+      --line:rgba(237,198,121,.20); --line-strong:rgba(237,198,121,.34); --gold:#ecc079; --rose:#ec7189;
+      color-scheme:dark;
+    }
+    @media (prefers-color-scheme:light){
+      :root:not([data-theme="dark"]){
+        --bg:#fdf1e3; --surface:rgba(255,246,234,.72); --text:#2a1c12; --muted:#6f5a49;
+        --line:rgba(151,97,38,.18); --line-strong:rgba(151,97,38,.30); --gold:#a56d24; --rose:#ca4a67;
+        color-scheme:light;
+      }
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:"Heebo",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      background:radial-gradient(900px 500px at 90% -8%,rgba(236,192,121,.12),transparent 60%),var(--bg);
+      color:var(--text); line-height:1.75; -webkit-font-smoothing:antialiased;
+    }
+    a{color:var(--gold)}
+    :focus-visible{outline:2px solid var(--gold); outline-offset:3px; border-radius:6px}
+    .wrap{width:min(calc(100% - 34px),820px); margin:0 auto; padding:40px 0 80px}
+    .brand{direction:ltr; display:inline-grid; gap:2px; line-height:1; margin-bottom:26px}
+    .brand strong{font-family:"Cormorant Garamond",serif; font-weight:600; letter-spacing:.12em; font-size:1.5rem; color:var(--gold)}
+    .brand span{font-family:"Cormorant Garamond",serif; letter-spacing:.42em; font-size:.6rem; opacity:.8}
+    h1{font-family:"Frank Ruhl Libre",serif; font-weight:900; font-size:clamp(2rem,5vw,3rem); margin:0 0 6px; letter-spacing:-.01em}
+    h2{font-family:"Frank Ruhl Libre",serif; font-weight:700; font-size:1.4rem; margin:34px 0 10px}
+    p,li{color:var(--muted)}
+    .updated{color:var(--gold); font-weight:700; font-size:.9rem; margin-bottom:26px}
+    .card{background:var(--surface); border:1px solid var(--line); border-radius:20px; padding:22px 24px; margin-top:16px}
+    ul{padding-inline-start:22px; margin:8px 0}
+    li{margin:6px 0}
+    .contact a{font-weight:700}
+    .back{display:inline-flex; align-items:center; gap:8px; margin-top:40px; padding:12px 20px; border:1px solid var(--line-strong); border-radius:14px; color:var(--text); text-decoration:none; font-weight:800; background:var(--surface)}
+    .back:hover{border-color:var(--gold)}
+    strong.hl{color:var(--text)}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <a class="brand" href="/" aria-label="NINNYO FLOWERS - לדף הבית"><strong>NINNYO</strong><span>FLOWERS</span></a>
+
+    <h1>הצהרת נגישות</h1>
+    <p class="updated">עודכן לאחרונה: 20 בספטמבר 2026</p>
+
+    <p>ב־NINNYO FLOWERS אנו רואים חשיבות רבה במתן שירות שוויוני לכלל הלקוחות, ופועלים כדי שאתר האינטרנט שלנו יהיה נגיש וידידותי לשימוש עבור אנשים עם מוגבלות, בהתאם ליכולתנו.</p>
+
+    <h2>רמת הנגישות באתר</h2>
+    <p>האתר נבנה בשאיפה לעמוד בדרישות תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), התשע"ג-2013, ובהתאם להנחיות התקן הישראלי <strong class="hl">ת"י 5568</strong> ברמה <strong class="hl">AA</strong>, המבוססות על מסמך ההנחיות הבינלאומי <strong class="hl">WCAG 2.0</strong>.</p>
+
+    <h2>מה נגיש באתר</h2>
+    <div class="card">
+      <ul>
+        <li>ניווט מלא באמצעות מקלדת וסימון ברור של הפוקוס.</li>
+        <li>קישור "דילוג לתוכן" בתחילת הדף.</li>
+        <li>מבנה סמנטי ותיאורי טקסט חלופי (alt) לתמונות.</li>
+        <li>ניגודיות צבעים מותאמת וכן מצב תצוגה בהיר/כהה.</li>
+        <li>עיצוב רספונסיבי המותאם למחשב, טאבלט ומובייל.</li>
+        <li>כיבוד העדפת המשתמש להפחתת אנימציות (reduced motion).</li>
+      </ul>
+    </div>
+
+    <h2>הסתייגויות ומגבלות ידועות</h2>
+    <p>אנו משקיעים מאמץ מתמשך לשיפור הנגישות. ייתכן שחלק מהתכנים או הרכיבים באתר טרם הונגשו במלואם, או שנמצאים בתהליך התאמה. אם נתקלתם בקושי או ברכיב שאינו נגיש — נשמח שתעדכנו אותנו ונטפל בכך בהקדם.</p>
+
+    <h2>דרכי פנייה בנושא נגישות</h2>
+    <div class="card contact">
+      <p style="margin-top:0">נתקלתם בבעיה, או שיש לכם הצעה לשיפור הנגישות? אפשר לפנות אלינו:</p>
+      <ul>
+        <li>טלפון / וואטסאפ: <a href="tel:+972522636363" dir="ltr">052-263-6363</a></li>
+        <li>דוא"ל: <a href="mailto:shlimanda91@gmail.com">shlimanda91@gmail.com</a></li>
+      </ul>
+      <p style="margin-bottom:0">נשתדל להשיב לכל פנייה בהקדם האפשרי.</p>
+    </div>
+
+    <a class="back" href="/">→ חזרה לדף הבית</a>
+  </main>
+</body>
+</html>
