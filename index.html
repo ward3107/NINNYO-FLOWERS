@@ -99,23 +99,23 @@
     }
 
     html[data-theme="light"] {
-      --bg: #fbf5ee;
-      --bg-soft: #f4e9df;
-      --surface: rgba(255,255,255,.66);
-      --surface-strong: rgba(255,255,255,.9);
-      --surface-solid: #fffdf9;
-      --text: #241a15;
-      --muted: #6c5a4f;
-      --faint: #9c8b7e;
-      --line: rgba(140,92,38,.16);
-      --line-strong: rgba(140,92,38,.28);
-      --gold: #a7712a;
-      --gold-2: #7c531d;
+      --bg: #fdf1e3;
+      --bg-soft: #f6e4d1;
+      --surface: rgba(255,246,234,.72);
+      --surface-strong: rgba(255,249,240,.92);
+      --surface-solid: #fff9f0;
+      --text: #2a1c12;
+      --muted: #6f5a49;
+      --faint: #a08874;
+      --line: rgba(151,97,38,.18);
+      --line-strong: rgba(151,97,38,.30);
+      --gold: #a56d24;
+      --gold-2: #7a4f18;
       --rose: #ca4a67;
       --rose-2: #a02545;
-      --cream: #fff8f0;
-      --shadow-sm: 0 8px 24px rgba(91,57,29,.10);
-      --shadow: 0 26px 70px rgba(91,57,29,.16);
+      --cream: #fff5e8;
+      --shadow-sm: 0 8px 24px rgba(102,62,26,.11);
+      --shadow: 0 26px 70px rgba(102,62,26,.17);
       --shadow-glow: 0 30px 80px rgba(202,74,103,.14);
       color-scheme: light;
     }
@@ -938,7 +938,7 @@
       function setTheme(theme){
         root.dataset.theme=theme;
         try{ localStorage.setItem('ninnyo-theme',theme); }catch(e){}
-        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#fbf5ee':'#0c0a09');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#fdf1e3':'#0c0a09');
         icon.innerHTML=theme==='light'
           ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
           : '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/>';
