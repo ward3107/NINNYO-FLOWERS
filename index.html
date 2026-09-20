@@ -206,9 +206,31 @@
     }
 
     /* ---------- header / nav ---------- */
+    :root { --promo-h: 0px; }
+    /* Seasonal promo banner (toggle in the PROMO config in the script below) */
+    .promo-bar {
+      position: fixed; top: 0; inset-inline: 0; z-index: 1100;
+      display: none; align-items: center; justify-content: center; gap: 12px;
+      min-height: 44px; padding: max(8px, env(safe-area-inset-top)) 48px 8px 16px;
+      background: linear-gradient(90deg, var(--rose-2), var(--gold-2));
+      color: #fff; font-weight: 800; font-size: .92rem; text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,.22);
+    }
+    body.promo-on .promo-bar { display: flex; }
+    body.promo-on { --promo-h: 44px; }
+    .promo-bar a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    .promo-close {
+      position: absolute; inset-inline-start: 8px; top: 50%; transform: translateY(-50%);
+      width: 30px; height: 30px; border-radius: 10px; border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.12); color: #fff; cursor: pointer; display: grid; place-items: center; line-height: 1;
+    }
+    .promo-close:hover { background: rgba(255,255,255,.24); }
+    @media (max-width: 640px) { .promo-bar { font-size: .82rem; padding-inline: 42px 12px; } .promo-bar a { display: none; } }
+
     .site-header {
-      position: fixed; top: 0; inset-inline: 0; z-index: 1000;
+      position: fixed; top: var(--promo-h); inset-inline: 0; z-index: 1000;
       padding-top: max(9px, env(safe-area-inset-top));
+      transition: top .25s ease;
     }
     .nav {
       height: var(--header-h);
@@ -666,6 +688,12 @@
 <body>
   <a class="skip-link" href="#home">דילוג לתוכן</a>
 
+  <div class="promo-bar" id="promoBar" role="region" aria-label="מבצע">
+    <span id="promoText"></span>
+    <a id="promoCta" href="#" target="_blank" rel="noopener"></a>
+    <button class="promo-close" id="promoClose" type="button" aria-label="סגירת ההודעה">✕</button>
+  </div>
+
   <header class="site-header" aria-label="ניווט ראשי">
     <nav class="nav" id="siteNav">
       <a href="#home" class="mini-brand" aria-label="NINNYO FLOWERS - לדף הבית">
@@ -1075,6 +1103,39 @@
         const msg=`שלום, הגעתי דרך האתר של NINNYO FLOWERS 🌸\nאני רוצה לשריין משלוח לשישי הקרוב (${date}).\n\nלמי שולחים: ${who}\nיעד: ${dest}\nמשלוח סודי: ${secret}\nהערות: ${notes}\n\nאשמח לבדוק זמינות.`;
         window.open('https://wa.me/972522636363?text='+encodeURIComponent(msg),'_blank','noopener');
       });
+
+      /* ---------- Seasonal promo banner ----------
+         Edit PROMO to change the message. Set on:false to hide it.
+         When you change the message, also change "id" so it re-appears
+         for visitors who dismissed the previous one.
+         Ready-to-use seasonal lines — just paste into "text" and bump "id":
+           יום האהבה: "❤️ יום האהבה מתקרב — הזמינו זר מראש ותנו לנו לשמח"
+           יום האם:    "💐 לכבוד יום המשפחה — פינוק מושלם לאמא, משלוח עד הבית"
+           ראש השנה:   "🍎 לראש השנה — זרים וסידורים חגיגיים, משריינים מראש"
+      */
+      const PROMO = {
+        on: true,
+        id: 'friday-79',
+        text: '🌸 משלוחי שישי — זר + משלוח בתוך פתח תקווה ב־79 ₪',
+        ctaLabel: 'להזמנה בוואטסאפ',
+        ctaHref: 'https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%20%D7%A4%D7%A8%D7%97%D7%99%D7%9D%20%F0%9F%8C%B8'
+      };
+      (function initPromo(){
+        const bar = document.getElementById('promoBar');
+        if(!bar || !PROMO.on) return;
+        let dismissed = false;
+        try { dismissed = localStorage.getItem('ninnyo-promo') === PROMO.id; } catch(e){}
+        if(dismissed) return;
+        document.getElementById('promoText').textContent = PROMO.text;
+        const cta = document.getElementById('promoCta');
+        if(PROMO.ctaHref){ cta.textContent = PROMO.ctaLabel || 'להזמנה'; cta.href = PROMO.ctaHref; }
+        else { cta.remove(); }
+        document.body.classList.add('promo-on');
+        document.getElementById('promoClose').addEventListener('click', function(){
+          document.body.classList.remove('promo-on');
+          try { localStorage.setItem('ninnyo-promo', PROMO.id); } catch(e){}
+        });
+      })();
     })();
   </script>
 
