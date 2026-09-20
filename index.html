@@ -216,9 +216,13 @@
       background: linear-gradient(90deg, var(--rose-2), var(--gold-2));
       color: #fff; font-weight: 800; font-size: .92rem; text-align: center;
       box-shadow: 0 6px 20px rgba(0,0,0,.22);
+      transform: translateY(0); transition: transform .3s ease;
     }
     body.promo-on .promo-bar { display: flex; }
     body.promo-on { --promo-h: 44px; }
+    /* slide the banner away when scrolled down; it returns near the top */
+    body.promo-on.promo-hidden { --promo-h: 0px; }
+    body.promo-on.promo-hidden .promo-bar { transform: translateY(-100%); }
     .promo-bar a { text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
     .promo-close {
       position: absolute; inset-inline-start: 8px; top: 50%; transform: translateY(-50%);
@@ -1064,6 +1068,8 @@
         const y=window.scrollY;
         backToTop.classList.toggle('show',y>520);
         if(nav) nav.classList.toggle('scrolled',y>14);
+        // hide the promo banner on scroll down; show it again near the top
+        if(document.body.classList.contains('promo-on')) document.body.classList.toggle('promo-hidden',y>60);
         scrollTicking=false;
       }
       window.addEventListener('scroll',()=>{
