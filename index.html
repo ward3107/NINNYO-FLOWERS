@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0a09" />
+  <meta name="description" content="NINNYO FLOWERS — זרי פרחים ומשלוחים בפתח תקווה. משלוחי שישי, הפתעות, אירועים ועסקים. הזמנה מהירה בוואטסאפ." />
+  <meta property="og:title" content="NINNYO FLOWERS | משלוחי פרחים בפתח תקווה" />
+  <meta property="og:description" content="משלוחי שישי, הפתעות, אירועים ועסקים. זרים החל מ־40 ₪ והזמנה מהירה בוואטסאפ." />
+  <meta property="og:type" content="website" />
+  <title>NINNYO FLOWERS | משלוחי פרחים בפתח תקווה</title>
+  <style>
+    :root {
+      --bg: #0b0a09;
+      --bg-soft: #151210;
+      --surface: rgba(255,255,255,.075);
+      --surface-strong: rgba(255,255,255,.12);
+      --surface-solid: #171310;
+      --text: #fffaf4;
+      --muted: #d7ccc1;
+      --line: rgba(237,198,121,.24);
+      --gold: #e8c179;
+      --gold-2: #b9883e;
+      --rose: #e76c86;
+      --rose-2: #b93854;
+      --cream: #fff4ea;
+      --green: #17b26a;
+      --shadow: 0 22px 70px rgba(0,0,0,.36);
+      --blur: 18px;
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+      --max: 1180px;
+      --header-h: 72px;
+      color-scheme: dark;
+    }
+
+    html[data-theme="light"] {
+      --bg: #fff9f3;
+      --bg-soft: #f8eee7;
+      --surface: rgba(255,255,255,.64);
+      --surface-strong: rgba(255,255,255,.84);
+      --surface-solid: #fffdf9;
+      --text: #231915;
+      --muted: #705f56;
+      --line: rgba(137,90,37,.16);
+      --gold: #a9752c;
+      --gold-2: #7d561e;
+      --rose: #cc4e6b;
+      --rose-2: #a42746;
+      --cream: #fff8f0;
+      --shadow: 0 22px 70px rgba(91,57,29,.14);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 9% 12%, rgba(231,108,134,.10), transparent 24%),
+        radial-gradient(circle at 88% 8%, rgba(232,193,121,.10), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      transition: background .35s ease, color .35s ease;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      background-image:
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,.035), transparent 1px),
+        radial-gradient(circle at 72% 60%, rgba(255,255,255,.025), transparent 1px);
+      background-size: 22px 22px, 29px 29px;
+      opacity: .4;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button { color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .container { width: min(calc(100% - 32px), var(--max)); margin-inline: auto; }
+    .section { padding: 84px 0; position: relative; }
+    .eyebrow {
+      display: inline-flex;
+      gap: 9px;
+      align-items: center;
+      color: var(--gold);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: currentColor; }
+
+    h1,h2,h3,p { margin-top: 0; }
+    h1,h2,h3 { text-wrap: balance; }
+    h2 { font-size: clamp(2rem, 5vw, 4rem); line-height: .98; margin-bottom: 18px; letter-spacing: -.035em; }
+    .lead { font-size: clamp(1rem, 2vw, 1.22rem); line-height: 1.7; color: var(--muted); max-width: 750px; }
+
+    .glass {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      -webkit-backdrop-filter: blur(var(--blur)) saturate(1.2);
+      backdrop-filter: blur(var(--blur)) saturate(1.2);
+    }
+    html[data-theme="light"] .glass { border-color: rgba(123,83,44,.12); }
+
+    .site-header {
+      position: fixed;
+      top: 0; inset-inline: 0;
+      z-index: 1000;
+      padding-top: max(8px, env(safe-area-inset-top));
+    }
+    .nav {
+      height: var(--header-h);
+      width: min(calc(100% - 22px), 1180px);
+      margin: 10px auto 0;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 18px;
+      background: color-mix(in srgb, var(--bg) 68%, transparent);
+      border: 1px solid var(--line);
+      -webkit-backdrop-filter: blur(22px) saturate(1.25);
+      backdrop-filter: blur(22px) saturate(1.25);
+      box-shadow: 0 10px 34px rgba(0,0,0,.18);
+    }
+
+    .mini-brand { direction: ltr; display: grid; line-height: 1; gap: 2px; min-width: 126px; }
+    .mini-brand strong { font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: .08em; font-size: 1.22rem; color: var(--gold); }
+    .mini-brand span { font-family: Georgia, "Times New Roman", serif; letter-spacing: .34em; font-size: .54rem; color: var(--text); opacity: .82; }
+
+    .nav-links { display: flex; gap: 20px; align-items: center; font-weight: 700; font-size: .9rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-actions { display: flex; gap: 8px; align-items: center; }
+    .icon-btn {
+      width: 44px; height: 44px; border-radius: 15px; border: 1px solid var(--line);
+      background: var(--surface); cursor: pointer; display:grid; place-items:center;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .icon-btn:hover { transform: translateY(-1px); background: var(--surface-strong); }
+    .icon-btn svg { width: 21px; height: 21px; }
+
+    .hero {
+      min-height: 100svh;
+      padding: calc(var(--header-h) + 70px) 0 54px;
+      display: grid;
+      align-items: center;
+      position: relative;
+    }
+    .hero::after {
+      content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+      background: linear-gradient(180deg, transparent 72%, var(--bg) 98%);
+    }
+    .hero-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: 42px; align-items: center; }
+
+    .hero-copy { position: relative; z-index: 2; }
+    .brand-lockup { direction: ltr; display: inline-block; margin-bottom: 26px; position: relative; padding: 13px 0; }
+    .brand-lockup::before, .brand-lockup::after {
+      content:""; position:absolute; left: 5%; right: 5%; height:1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .brand-lockup::before { top:0; }
+    .brand-lockup::after { bottom:0; }
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.7rem, 10vw, 7.2rem);
+      line-height:.78;
+      font-weight: 500;
+      letter-spacing: -.055em;
+      background: linear-gradient(180deg, #fff1be 0%, var(--gold) 46%, #9e6827 100%);
+      -webkit-background-clip: text; background-clip:text; color:transparent;
+      filter: drop-shadow(0 10px 24px rgba(201,143,54,.15));
+      white-space: nowrap;
+    }
+    .brand-sub { font-family: Georgia, "Times New Roman", serif; letter-spacing: .5em; color: var(--gold); font-size: clamp(.85rem, 2vw, 1.15rem); text-align:center; margin-top:18px; }
+    .brand-flower { width:44px; height:44px; position:absolute; top:-21px; left:50%; transform:translateX(-50%); color:var(--gold); }
+
+    .hero h1 { font-size: clamp(2.25rem, 5vw, 4.8rem); line-height:.98; margin: 0 0 18px; letter-spacing: -.05em; }
+    .hero h1 .accent { color: var(--rose); }
+    .hero .lead { margin-bottom: 26px; }
+
+    .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin: 28px 0 24px; }
+    .btn {
+      min-height: 56px; padding: 0 22px; border-radius: 18px; border: 1px solid var(--line);
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      font-weight: 900; transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+      cursor:pointer; position:relative; overflow:hidden;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: scale(.985); }
+    .btn-primary {
+      background: linear-gradient(135deg, #18b969, #0b9a56);
+      color:#fff; border-color: transparent; box-shadow: 0 12px 34px rgba(22,181,103,.26);
+    }
+    .btn-primary::after { content:""; position:absolute; inset:-1px auto -1px -35%; width:30%; transform:skewX(-20deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.38),transparent); animation:shine 5s infinite 1.3s; }
+    .btn-secondary { background: var(--surface); color: var(--text); }
+    .btn svg { width: 22px; height: 22px; flex:0 0 auto; }
+
+    .trust-row { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:.9rem; }
+    .trust-pill { padding: 8px 12px; border-radius:999px; border:1px solid var(--line); background: var(--surface); display:flex; align-items:center; gap:7px; }
+    .dot { width:7px;height:7px;border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px rgba(232,193,121,.08); }
+
+    .hero-media { position: relative; min-height: 650px; }
+    .hero-photo {
+      position:absolute; inset:0 0 0 6%; border-radius: 42px; overflow:hidden;
+      box-shadow: 0 34px 90px rgba(0,0,0,.42); border:1px solid var(--line); transform:rotate(-1.5deg);
+    }
+    .hero-photo img { width:100%;height:100%;object-fit:cover; object-position:center 44%; }
+    .hero-photo::after { content:""; position:absolute; inset:0; background: linear-gradient(180deg, transparent 62%, rgba(0,0,0,.34)); }
+    .hero-badge {
+      position:absolute; left:-8px; bottom:40px; z-index:3; padding:17px 19px; border-radius:22px; max-width:265px;
+      background: color-mix(in srgb, var(--bg) 58%, transparent); border:1px solid rgba(255,255,255,.14);
+      -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow:var(--shadow);
+    }
+    .hero-badge strong { display:block; font-size:1.55rem; color:var(--gold); margin-bottom:3px; }
+    .hero-badge span { color:var(--muted); line-height:1.4; }
+    .floating-card {
+      position:absolute; top:56px; right:-8px; z-index:4; border-radius:20px; padding:14px 16px; background:rgba(255,244,234,.94); color:#281b17; transform:rotate(3deg); box-shadow:0 18px 50px rgba(0,0,0,.22);
+    }
+    .floating-card b { color:#ae2948; display:block; margin-bottom:3px; }
+
+    .friday-wrap { margin-top:-12px; }
+    .friday-card {
+      border-radius: var(--radius-xl); overflow:hidden; display:grid; grid-template-columns: .88fr 1.12fr;
+      min-height: 510px; border: 1px solid var(--line); background: var(--surface-solid); box-shadow:var(--shadow);
+    }
+    .friday-copy { padding: clamp(30px,5vw,68px); display:flex; flex-direction:column; justify-content:center; position:relative; }
+    .friday-copy::before { content:""; position:absolute; inset:0; background: radial-gradient(circle at 90% 20%, rgba(231,108,134,.14), transparent 33%); pointer-events:none; }
+    .friday-title { font-size:clamp(2.4rem,5.5vw,5rem); line-height:.92; margin:12px 0 18px; letter-spacing:-.05em; }
+    .friday-title em { font-style:normal; color:var(--rose); }
+    .price-line { display:flex; align-items:baseline; gap:10px; margin: 18px 0 14px; }
+    .price-line .price { font-size:clamp(3.4rem,8vw,6rem); font-weight:950; line-height:.8; color:var(--gold); letter-spacing:-.06em; }
+    .price-line span:last-child { color:var(--muted); font-weight:800; }
+    .friday-photo { position:relative; min-height:510px; overflow:hidden; }
+    .friday-photo img { width:100%;height:100%;object-fit:cover;object-position:center 44%; }
+    .friday-photo::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,var(--surface-solid) 0%, transparent 26%); }
+
+    .quick-order {
+      margin-top:26px; border-radius:26px; padding:20px; border:1px solid var(--line); background:var(--surface);
+    }
+    .quick-order-head { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:14px; }
+    .quick-order-head strong { font-size:1.1rem; }
+    .quick-order-head small { color:var(--muted); }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+    .field { display:grid; gap:7px; }
+    .field.full { grid-column:1/-1; }
+    .field label { font-size:.82rem; font-weight:800; color:var(--muted); }
+    .field input,.field select,.field textarea {
+      width:100%; border:1px solid var(--line); color:var(--text); background:color-mix(in srgb,var(--bg) 68%,transparent);
+      border-radius:15px; min-height:48px; padding:10px 12px; outline:none;
+    }
+    .field textarea { min-height:80px; resize:vertical; }
+    .field input:focus,.field select:focus,.field textarea:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(232,193,121,.10); }
+    .toggle-row { display:flex;align-items:center;gap:10px; }
+    .switch { position:relative;width:48px;height:28px;flex:0 0 auto; }
+    .switch input { opacity:0;width:0;height:0;position:absolute; }
+    .slider { position:absolute;inset:0;border-radius:999px;background:rgba(128,128,128,.3);transition:.25s;cursor:pointer; }
+    .slider::before { content:"";position:absolute;width:22px;height:22px;right:3px;top:3px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.24);transition:.25s; }
+    .switch input:checked + .slider { background:var(--rose); }
+    .switch input:checked + .slider::before { transform:translateX(-20px); }
+    .privacy-note { font-size:.75rem;color:var(--muted);margin:9px 0 0; }
+
+    .delivery-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px; }
+    .delivery-card { border-radius:26px;padding:26px;min-height:245px;position:relative;overflow:hidden;transition:transform .25s ease,border-color .25s ease;background:var(--surface);border:1px solid var(--line); }
+    .delivery-card:hover { transform:translateY(-4px);border-color:color-mix(in srgb,var(--gold) 60%,transparent); }
+    .delivery-card .icon { width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(231,108,134,.12);color:var(--rose);margin-bottom:22px; }
+    .delivery-card .icon svg { width:28px;height:28px; }
+    .delivery-card h3 { font-size:1.35rem;margin-bottom:10px; }
+    .delivery-card p { color:var(--muted);line-height:1.7;margin-bottom:0; }
+    .delivery-card .num { position:absolute;left:20px;top:17px;font:700 .75rem/1 Georgia,serif;color:var(--gold);opacity:.75; }
+
+    .story-strip { margin-top:34px;border-radius:26px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;gap:22px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(231,108,134,.12),rgba(232,193,121,.06)); }
+    .story-strip strong { font-size:clamp(1.25rem,2vw,1.7rem); }
+    .story-strip span { color:var(--muted); }
+
+    .gallery { display:grid;grid-template-columns:1.05fr .95fr 1fr;gap:14px;margin-top:32px; }
+    .gallery-card { position:relative;border-radius:28px;overflow:hidden;min-height:440px;border:1px solid var(--line);box-shadow:var(--shadow); }
+    .gallery-card img { width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.2,1); }
+    .gallery-card:hover img { transform:scale(1.025); }
+    .gallery-card .caption { position:absolute;right:16px;left:16px;bottom:16px;padding:14px 16px;border-radius:18px;background:rgba(10,8,7,.62);color:#fff;backdrop-filter:blur(14px);display:flex;justify-content:space-between;align-items:center;gap:12px; }
+    .gallery-card .caption small { opacity:.75; }
+
+    .reason-section { overflow:hidden; }
+    .reason-grid { display:grid;grid-template-columns:.9fr 1.1fr;gap:42px;align-items:center; }
+    .reason-list { display:grid;gap:12px; }
+    .reason-item { display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:center;padding:16px 17px;border:1px solid var(--line);border-radius:20px;background:var(--surface); }
+    .reason-item .r-icon { width:48px;height:48px;border-radius:15px;display:grid;place-items:center;color:var(--rose);background:rgba(231,108,134,.10); }
+    .reason-item strong { display:block;font-size:1rem;margin-bottom:3px; }
+    .reason-item span { color:var(--muted);font-size:.9rem; }
+    .reason-photo { border-radius:36px;overflow:hidden;min-height:590px;border:1px solid var(--line);position:relative;box-shadow:var(--shadow); }
+    .reason-photo img { width:100%;height:100%;object-fit:cover; }
+    .reason-photo::after { content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 62%,rgba(0,0,0,.38)); }
+    .reason-quote { position:absolute;bottom:24px;right:24px;left:24px;z-index:2;color:#fff;font-weight:900;font-size:clamp(1.3rem,3vw,2.2rem);line-height:1.12; }
+
+    .info-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px; }
+    .info-card { padding:22px;border-radius:22px;border:1px solid var(--line);background:var(--surface);min-height:170px; }
+    .info-card .small-icon { color:var(--gold);margin-bottom:18px; }
+    .info-card svg { width:27px;height:27px; }
+    .info-card strong { display:block;margin-bottom:7px;font-size:1.05rem; }
+    .info-card span { color:var(--muted);line-height:1.55;font-size:.92rem; }
+
+    .contact-grid { display:grid;grid-template-columns:1.08fr .92fr;gap:18px;align-items:stretch;margin-top:30px; }
+    .contact-card,.location-card { border-radius:30px;padding:30px;border:1px solid var(--line);background:var(--surface); }
+    .contact-list { display:grid;gap:12px;margin:24px 0 0; }
+    .contact-link { display:flex;align-items:center;justify-content:space-between;gap:16px;padding:15px 16px;border-radius:17px;border:1px solid var(--line);background:color-mix(in srgb,var(--bg) 58%,transparent); }
+    .contact-link:hover { border-color:var(--gold); }
+    .contact-link .meta { display:flex;gap:12px;align-items:center;min-width:0; }
+    .contact-link svg { width:21px;height:21px;color:var(--rose);flex:0 0 auto; }
+    .contact-link b { display:block;font-size:.9rem; }
+    .contact-link small { color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:290px;direction:ltr; }
+    .location-card { position:relative;overflow:hidden; }
+    .location-card::before { content:"";position:absolute;width:260px;height:260px;border-radius:50%;left:-80px;top:-70px;background:rgba(232,193,121,.11);filter:blur(4px); }
+    .location-card > * { position:relative;z-index:1; }
+    .location-card h3 { font-size:1.65rem;margin:14px 0 8px; }
+    .location-card p { color:var(--muted);line-height:1.65; }
+
+    .final-cta { padding-bottom: 130px; }
+    .final-card { border-radius:38px;padding:clamp(34px,6vw,72px);text-align:center;position:relative;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,rgba(231,108,134,.14),rgba(232,193,121,.08)); }
+    .final-card::before,.final-card::after { content:"";position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none; }
+    .final-card::before { width:250px;height:250px;background:rgba(231,108,134,.10);right:-90px;top:-110px; }
+    .final-card::after { width:220px;height:220px;background:rgba(232,193,121,.08);left:-80px;bottom:-110px; }
+    .final-card h2 { max-width:780px;margin:10px auto 16px; }
+    .final-card .lead { margin:0 auto 26px; }
+    .final-actions { display:flex;justify-content:center;gap:12px;flex-wrap:wrap; }
+
+    footer { border-top:1px solid var(--line);padding:34px 0 calc(96px + env(safe-area-inset-bottom));color:var(--muted); }
+    .footer-row { display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap; }
+    .footer-social { display:flex;gap:10px;flex-wrap:wrap; }
+    .footer-social a { padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface); }
+    .blessing { font-family:Georgia,"Times New Roman",serif;color:var(--gold);letter-spacing:.04em; }
+
+    .float-wa {
+      position:fixed;left:20px;bottom:20px;z-index:900;width:64px;height:64px;border-radius:22px;background:linear-gradient(135deg,#1fc276,#0aa05c);display:grid;place-items:center;color:#fff;box-shadow:0 18px 38px rgba(13,162,91,.35);border:1px solid rgba(255,255,255,.22);transition:.2s;
+    }
+    .float-wa:hover { transform:translateY(-3px) scale(1.02); }
+    .float-wa svg { width:31px;height:31px; }
+    .float-wa::after { content:"הזמנה";position:absolute;left:72px;white-space:nowrap;padding:8px 10px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--line);font-size:.78rem;font-weight:900;color:var(--text);opacity:0;transform:translateX(-5px);transition:.2s;pointer-events:none; }
+    .float-wa:hover::after { opacity:1;transform:none; }
+
+    .mobile-bar { display:none; }
+
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity:1;transform:none; }
+    .stagger > * { opacity:0; transform:translateY(20px); transition:opacity .55s ease,transform .55s ease; }
+    .stagger.is-visible > * { opacity:1;transform:none; }
+    .stagger.is-visible > *:nth-child(2){transition-delay:.08s}.stagger.is-visible > *:nth-child(3){transition-delay:.16s}.stagger.is-visible > *:nth-child(4){transition-delay:.24s}
+
+    .brand-lockup { animation:logoIn .9s cubic-bezier(.18,.75,.25,1) both .1s; }
+    .hero-copy > :not(.brand-lockup) { animation:fadeUp .7s cubic-bezier(.2,.7,.2,1) both; }
+    .hero-copy > :nth-child(2){animation-delay:.18s}.hero-copy > :nth-child(3){animation-delay:.26s}.hero-copy > :nth-child(4){animation-delay:.34s}.hero-copy > :nth-child(5){animation-delay:.42s}
+    .hero-media { animation:mediaIn .95s cubic-bezier(.2,.7,.2,1) both .18s; }
+
+    @keyframes logoIn { from{opacity:0;transform:scale(.94) translateY(16px);filter:blur(5px)} to{opacity:1;transform:none;filter:none} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(18px)} to{opacity:1;transform:none} }
+    @keyframes mediaIn { from{opacity:0;transform:translateX(-18px) scale(.985)} to{opacity:1;transform:none} }
+    @keyframes shine { 0%,76%{left:-35%;opacity:0}82%{opacity:1}96%,100%{left:125%;opacity:0} }
+
+    @media (max-width: 980px) {
+      .nav-links { display:none; }
+      .hero-grid,.reason-grid,.contact-grid { grid-template-columns:1fr; }
+      .hero { padding-top:calc(var(--header-h) + 55px); }
+      .hero-copy { text-align:center; }
+      .hero-copy .lead { margin-inline:auto; }
+      .brand-lockup { margin-inline:auto; }
+      .cta-row,.trust-row { justify-content:center; }
+      .hero-media { min-height:560px;max-width:700px;width:100%;margin-inline:auto; }
+      .hero-photo { inset:0 3%; }
+      .friday-card { grid-template-columns:1fr; }
+      .friday-photo { min-height:420px;order:-1; }
+      .friday-photo::after { background:linear-gradient(180deg,transparent 65%,var(--surface-solid)); }
+      .delivery-grid { grid-template-columns:1fr 1fr; }
+      .gallery { grid-template-columns:1fr 1fr; }
+      .gallery-card:last-child { grid-column:1/-1;min-height:360px; }
+      .reason-photo { min-height:520px; }
+      .info-grid { grid-template-columns:1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --header-h:64px; }
+      .container { width:min(calc(100% - 20px),var(--max)); }
+      .section { padding:64px 0; }
+      .site-header { padding-top:max(4px,env(safe-area-inset-top)); }
+      .nav { margin-top:6px;width:calc(100% - 12px);height:64px;border-radius:21px;padding:0 10px 0 13px; }
+      .mini-brand { min-width:auto; }
+      .mini-brand strong { font-size:1rem; }
+      .mini-brand span { font-size:.46rem;letter-spacing:.28em; }
+      .nav-actions .wa-top { display:none; }
+      .icon-btn { width:42px;height:42px;border-radius:14px; }
+
+      .hero { min-height:auto;padding-top:calc(var(--header-h) + 44px);padding-bottom:28px; }
+      .hero-grid { gap:26px; }
+      .hero-copy { text-align:right; }
+      .brand-lockup { margin-inline:0; }
+      .brand-name { font-size:clamp(3.7rem,21vw,5.4rem); }
+      .brand-sub { text-align:left;font-size:.74rem;letter-spacing:.42em; }
+      .hero h1 { font-size:clamp(2.25rem,11vw,3.7rem); }
+      .hero-copy .lead { margin-inline:0;font-size:1rem; }
+      .cta-row,.trust-row { justify-content:flex-start; }
+      .cta-row .btn { width:100%; }
+      .trust-row { overflow:auto;flex-wrap:nowrap;padding-bottom:4px;scrollbar-width:none; }
+      .trust-row::-webkit-scrollbar { display:none; }
+      .trust-pill { white-space:nowrap; }
+      .hero-media { min-height:480px; }
+      .hero-photo { inset:0 0; border-radius:32px;transform:none; }
+      .hero-badge { left:10px;right:10px;bottom:14px;max-width:none; }
+      .floating-card { top:14px;right:10px;max-width:200px;font-size:.86rem; }
+
+      .friday-card { border-radius:30px; }
+      .friday-photo { min-height:360px; }
+      .friday-copy { padding:28px 20px 24px; }
+      .friday-title { font-size:clamp(2.35rem,13vw,3.6rem); }
+      .form-grid { grid-template-columns:1fr; }
+      .field.full { grid-column:auto; }
+      .quick-order { padding:16px;border-radius:22px; }
+      .quick-order-head { align-items:flex-start;flex-direction:column;gap:4px; }
+
+      .delivery-grid { grid-template-columns:1fr; }
+      .delivery-card { min-height:auto;padding:22px; }
+      .story-strip { align-items:flex-start;flex-direction:column;padding:20px; }
+
+      .gallery { grid-template-columns:1fr; }
+      .gallery-card,.gallery-card:last-child { grid-column:auto;min-height:420px; }
+
+      .reason-photo { min-height:490px;border-radius:30px; }
+      .reason-list { gap:10px; }
+      .reason-item { grid-template-columns:44px 1fr;padding:14px; }
+      .reason-item .r-icon { width:44px;height:44px; }
+
+      .info-grid { grid-template-columns:1fr 1fr;gap:10px; }
+      .info-card { min-height:150px;padding:18px; }
+      .contact-card,.location-card { padding:22px;border-radius:26px; }
+      .contact-link { padding:13px 14px; }
+      .contact-link small { max-width:190px; }
+
+      .final-cta { padding-bottom:112px; }
+      .final-card { border-radius:30px;padding:34px 18px; }
+      .final-actions .btn { width:100%; }
+
+      .float-wa { display:none; }
+      .mobile-bar {
+        position:fixed;z-index:1100;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+        left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));padding:8px;border-radius:22px;
+        background:color-mix(in srgb,var(--bg) 72%,transparent);border:1px solid var(--line);backdrop-filter:blur(22px);box-shadow:0 16px 44px rgba(0,0,0,.24);
+      }
+      .mobile-bar a { min-height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.78rem;font-weight:900;background:var(--surface);border:1px solid transparent; }
+      .mobile-bar a:first-child { background:linear-gradient(135deg,#1fc276,#0aa05c);color:#fff; }
+      .mobile-bar svg { width:20px;height:20px; }
+      footer { padding-bottom:calc(110px + env(safe-area-inset-bottom)); }
+    }
+
+    @media (max-width: 420px) {
+      .brand-name { font-size:3.65rem; }
+      .info-grid { grid-template-columns:1fr; }
+      .gallery-card,.gallery-card:last-child { min-height:390px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important; }
+      .reveal,.stagger>* { opacity:1!important;transform:none!important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="ניווט ראשי">
+    <nav class="nav">
+      <a href="#home" class="mini-brand" aria-label="NINNYO FLOWERS - לדף הבית">
+        <strong>NINNYO</strong><span>FLOWERS</span>
+      </a>
+      <div class="nav-links">
+        <a href="#friday">שישי</a>
+        <a href="#delivery">משלוחים</a>
+        <a href="#gallery">מהשטח</a>
+        <a href="#contact">צור קשר</a>
+      </div>
+      <div class="nav-actions">
+        <a class="icon-btn wa-top" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%96%D7%A8%20%2F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97." target="_blank" rel="noopener" aria-label="פתיחת וואטסאפ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
+        </a>
+        <button class="icon-btn" id="themeToggle" type="button" aria-label="החלפת ערכת צבעים" title="Light / Dark">
+          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="brand-lockup" aria-label="NINNYO FLOWERS">
+            <svg class="brand-flower" viewBox="0 0 64 64" fill="none" aria-hidden="true"><g fill="currentColor"><ellipse cx="32" cy="14" rx="7" ry="12"/><ellipse cx="48" cy="23" rx="7" ry="12" transform="rotate(60 48 23)"/><ellipse cx="48" cy="41" rx="7" ry="12" transform="rotate(120 48 41)"/><ellipse cx="32" cy="50" rx="7" ry="12"/><ellipse cx="16" cy="41" rx="7" ry="12" transform="rotate(60 16 41)"/><ellipse cx="16" cy="23" rx="7" ry="12" transform="rotate(120 16 23)"/><circle cx="32" cy="32" r="7"/></g></svg>
+            <div class="brand-name">NINNYO</div>
+            <div class="brand-sub">FLOWERS</div>
+          </div>
+          <h1>משלוחי פרחים <span class="accent">בלי כאב ראש.</span></h1>
+          <p class="lead">אתם בוחרים למי לשמח את היום — אנחנו דואגים לזר, לתיאום ולמשלוח עד אליכם או ישירות למי שתרצו להפתיע.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%96%D7%A8%20%2F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
+              להזמנה בוואטסאפ
+            </a>
+            <a class="btn btn-secondary" href="tel:+972522636363">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.7 2.6a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 2 2.3Z"/></svg>
+              052-263-6363
+            </a>
+          </div>
+          <div class="trust-row" aria-label="יתרונות עיקריים">
+            <div class="trust-pill"><span class="dot"></span> זרים החל מ־40 ₪</div>
+            <div class="trust-pill"><span class="dot"></span> משלוחים בפתח תקווה</div>
+            <div class="trust-pill"><span class="dot"></span> Bit / PayBox / אשראי</div>
+          </div>
+        </div>
+
+        <div class="hero-media" aria-label="זר ורדים של NINNYO FLOWERS">
+          <div class="hero-photo"><img src="assets/red-bouquet.webp" alt="זר ורדים אדומים בעיצוב NINNYO FLOWERS" fetchpriority="high" /></div>
+          <div class="floating-card"><b>רוצים להפתיע?</b><span>אפשר גם משלוח סודי 💗</span></div>
+          <div class="hero-badge"><strong>79 ₪</strong><span>בימי שישי — זר + משלוח בתוך פתח תקווה</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section friday-wrap" id="friday">
+      <div class="container">
+        <div class="friday-card reveal">
+          <div class="friday-copy">
+            <span class="eyebrow">משלוחי שישי</span>
+            <h2 class="friday-title">לשישי הקרוב — <em>משריינים כבר בתחילת השבוע.</em></h2>
+            <p class="lead">אנחנו חוסכים לכם את ההתעסקות: מכינים את הזר, מתאמים ומביאים אותו עד אליכם — או עד למי שתרצו לשמח.</p>
+            <div class="price-line"><span class="price">79₪</span><span>זר + משלוח בתוך פתח תקווה</span></div>
+            <p class="lead" style="font-size:.96rem">כדאי להזמין מוקדם. ננסה לעזור גם בהתראה קצרה, בהתאם לזמינות.</p>
+
+            <div class="quick-order" aria-labelledby="quickTitle">
+              <div class="quick-order-head"><div><strong id="quickTitle">שלחו את פרטי המשלוח בוואטסאפ</strong><br><small id="fridayDate">לשישי הקרוב</small></div><small>פחות מדקה</small></div>
+              <form id="quickForm">
+                <div class="form-grid">
+                  <div class="field">
+                    <label for="recipient">למי שולחים?</label>
+                    <select id="recipient"><option>בת / בן זוג</option><option>אמא</option><option>סבתא</option><option>חבר / חברה</option><option>עסק / משרד</option><option>אירוע</option><option>אחר</option></select>
+                  </div>
+                  <div class="field">
+                    <label for="destination">יעד המשלוח</label>
+                    <input id="destination" type="text" placeholder="רחוב / שכונה / מקום" autocomplete="street-address" />
+                  </div>
+                  <div class="field full">
+                    <div class="toggle-row">
+                      <label class="switch" aria-label="משלוח סודי"><input id="secret" type="checkbox"><span class="slider"></span></label>
+                      <div><strong>משלוח סודי — הפתעה</strong><br><small style="color:var(--muted)">לא מגלים למקבל/ת עד שהזר מגיע.</small></div>
+                    </div>
+                  </div>
+                  <div class="field full">
+                    <label for="notes">משהו שחשוב לנו לדעת?</label>
+                    <textarea id="notes" placeholder="שעה מועדפת, ברכה, פרטי כניסה או בקשה מיוחדת"></textarea>
+                  </div>
+                </div>
+                <button class="btn btn-primary" type="submit" style="width:100%;margin-top:12px">שלחו פרטים בוואטסאפ</button>
+                <p class="privacy-note">הפרטים לא נשמרים באתר — הם רק מצורפים להודעת הוואטסאפ שתיפתח אצלכם.</p>
+              </form>
+            </div>
+          </div>
+          <div class="friday-photo"><img src="assets/pink-bouquet.webp" alt="זר ורדים ורודים למשלוח יום שישי" loading="lazy" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="delivery">
+      <div class="container">
+        <span class="eyebrow reveal">בדיוק בדרך שנוחה לכם</span>
+        <h2 class="reveal">שלושה סוגי משלוח. מטרה אחת: לשמח.</h2>
+        <p class="lead reveal">לא משנה אם נזכרתם עכשיו, רוצים לשמור על הפתעה, או צריכים פתרון לעסק — פונים אלינו ואנחנו דואגים להמשך.</p>
+
+        <div class="delivery-grid stagger reveal">
+          <article class="delivery-card">
+            <span class="num">01</span>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="M3 4h7M1 10h4"/></svg></div>
+            <h3>משלוח בהתראה קצרה</h3>
+            <p>נזכרתם ברגע האחרון? שלחו לנו הודעה. בהתאם לזמינות, ננסה לסגור לכם זר ומשלוח במהירות.</p>
+          </article>
+          <article class="delivery-card">
+            <span class="num">02</span>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/><path d="M12 7H7.5a2.5 2.5 0 1 1 2.2-3.7L12 7Zm0 0h4.5a2.5 2.5 0 1 0-2.2-3.7L12 7Z"/></svg></div>
+            <h3>משלוח סודי — הפתעה</h3>
+            <p>לבת זוג, לאמא, לסבתא או למישהו מיוחד. אנחנו שומרים על ההפתעה עד לרגע שהזר מגיע.</p>
+          </article>
+          <article class="delivery-card">
+            <span class="num">03</span>
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 21V10h16v11"/><path d="M8 10V4h8v6"/><path d="M8 14h2M14 14h2M8 18h2M14 18h2"/></svg></div>
+            <h3>משלוחים לאירועים ועסקים</h3>
+            <p>למשרד, לבית עסק, לאירוע או לכל יעד שתבחרו בפתח תקווה — מתאמים מראש ודואגים שהכול יגיע בזמן.</p>
+          </article>
+        </div>
+
+        <div class="story-strip reveal">
+          <div><strong>“אנחנו חוסכים לכם את כאב הראש.”</strong><br><span>אתם אומרים למי ולאן — אנחנו מטפלים בפרחים ובמשלוח.</span></div>
+          <a class="btn btn-secondary" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%20%D7%A4%D7%A8%D7%97%D7%99%D7%9D%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8" target="_blank" rel="noopener">בדקו זמינות עכשיו</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <span class="eyebrow reveal">מהשטח</span>
+        <h2 class="reveal">הפרחים שלנו, כמו שהם באמת.</h2>
+        <p class="lead reveal">בלי תמונות סטוק ובלי הבטחות באוויר — אלה הזרים והדוכן שלנו.</p>
+        <div class="gallery stagger reveal">
+          <figure class="gallery-card"><img src="assets/pink-bouquet.webp" alt="זר ורדים ורודים עם תפוחים ירוקים" loading="lazy"><figcaption class="caption"><strong>מתנה שמגיעה מהלב</strong><small>זרים בעבודת יד</small></figcaption></figure>
+          <figure class="gallery-card"><img src="assets/red-bouquet.webp" alt="זר ורדים אדומים עם גיפסנית" loading="lazy"><figcaption class="caption"><strong>זרי אהבה</strong><small>לרגעים מיוחדים</small></figcaption></figure>
+          <figure class="gallery-card"><img src="assets/stall.webp" alt="דוכן הפרחים של NINNYO FLOWERS בפתח תקווה" loading="lazy"><figcaption class="caption"><strong>הדוכן שלנו</strong><small>יוניברס פתח תקווה — סגולה</small></figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reason-section">
+      <div class="container reason-grid">
+        <div>
+          <span class="eyebrow reveal">לכל רגע מיוחד</span>
+          <h2 class="reveal">אנחנו שם בשבילך.</h2>
+          <p class="lead reveal">לפעמים צריך מחווה גדולה. לפעמים רק להזכיר למישהו שחושבים עליו. בשני המקרים — פרחים עושים את העבודה.</p>
+          <div class="reason-list stagger reveal">
+            <div class="reason-item"><div class="r-icon">♡</div><div><strong>לבת / בן זוג</strong><span>הפתעה רומנטית בלי סיבה מיוחדת.</span></div></div>
+            <div class="reason-item"><div class="r-icon">✿</div><div><strong>לאמא או לסבתא</strong><span>דרך יפה להגיד תודה ולהראות אהבה.</span></div></div>
+            <div class="reason-item"><div class="r-icon">✦</div><div><strong>לאירוע מיוחד</strong><span>מחווה שמכניסה צבע ורגע של וואו.</span></div></div>
+            <div class="reason-item"><div class="r-icon">⌂</div><div><strong>לעסק או למשרד</strong><span>משלוח מכובד לעובדים, לקוחות או שותפים.</span></div></div>
+          </div>
+        </div>
+        <div class="reason-photo reveal"><img src="assets/red-bouquet.webp" alt="זר ורדים אדומים למשלוח הפתעה" loading="lazy"><div class="reason-quote">פרחים שמדברים מהלב.<br>אנחנו רק דואגים שהם יגיעו.</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow reveal">פשוט, נוח וברור</span>
+        <h2 class="reveal">כל מה שחשוב לדעת לפני שמזמינים.</h2>
+        <div class="info-grid stagger reveal">
+          <div class="info-card"><div class="small-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 5h18v14H3z"/><path d="M7 15h4M7 10h10"/></svg></div><strong>מכבדים תשלומים נוחים</strong><span>Bit / PayBox / כרטיסי אשראי</span></div>
+          <div class="info-card"><div class="small-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 21V7"/></svg></div><strong>מחירים נוחים לכל כיס</strong><span>זרים החל מ־40 ₪</span></div>
+          <div class="info-card"><div class="small-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></div><strong>עסק של לוחם</strong><span>בהערכה למי ששומרים עלינו — הנחה ללוחמים במדים.</span></div>
+          <div class="info-card"><div class="small-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v10H3z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></div><strong>משלוחים בפתח תקווה</strong><span>עד אליכם או ישירות למי שתרצו להפתיע.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <span class="eyebrow reveal">דברו איתנו</span>
+        <h2 class="reveal">הזמנה, הגעה או שאלה — אנחנו זמינים.</h2>
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3 style="font-size:1.7rem;margin-bottom:6px">פרטי קשר</h3>
+            <p class="lead" style="font-size:.98rem">הדרך המהירה ביותר להזמין היא בוואטסאפ.</p>
+            <div class="contact-list">
+              <a class="contact-link" href="https://wa.me/972522636363" target="_blank" rel="noopener"><div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/></svg><div><b>וואטסאפ / טלפון</b><small>052-263-6363</small></div></div><span>←</span></a>
+              <a class="contact-link" href="mailto:shlimanda91@gmail.com"><div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 5h18v14H3z"/><path d="m3 7 9 6 9-6"/></svg><div><b>מייל</b><small>shlimanda91@gmail.com</small></div></div><span>←</span></a>
+              <a class="contact-link" href="https://www.instagram.com/ninio_flowers/" target="_blank" rel="noopener"><div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg><div><b>Instagram</b><small>@ninio_flowers</small></div></div><span>←</span></a>
+              <a class="contact-link" href="https://www.tiktok.com/@ninio_flowers" target="_blank" rel="noopener"><div class="meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M15 3v12.5a4.5 4.5 0 1 1-3.6-4.4"/><path d="M15 6c1.4 1.8 3 2.8 5 3"/></svg><div><b>TikTok</b><small>@ninio_flowers</small></div></div><span>←</span></a>
+            </div>
+          </div>
+
+          <div class="location-card reveal">
+            <span class="eyebrow">המיקום שלנו</span>
+            <h3>יוניברס פתח תקווה — סגולה</h3>
+            <p><strong style="color:var(--text)">בכניסה ליוניברס</strong><br>שופרסל דיל אקסטרה סגולה<br>הרב פינטו מסעוד אשר 18, פתח תקווה</p>
+            <div class="cta-row" style="margin-bottom:14px">
+              <a class="btn btn-primary" style="background:linear-gradient(135deg,#48a6ff,#1977d2);box-shadow:0 12px 34px rgba(43,139,225,.22)" href="https://waze.com/ul/hsv8yd59ts" target="_blank" rel="noopener">ניווט עם Waze</a>
+              <a class="btn btn-secondary" href="tel:+972542948073">הסתבכתם? 054-294-8073</a>
+            </div>
+            <p style="font-size:.82rem;margin:0;color:var(--muted)">אם אתם לא מוצאים אותנו בכניסה ליוניברס — התקשרו ונכוון אתכם.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section final-cta">
+      <div class="container">
+        <div class="final-card reveal">
+          <span class="eyebrow">NINNYO FLOWERS</span>
+          <h2>רוצים שהזר יגיע בדיוק לרגע הנכון?</h2>
+          <p class="lead">שלחו לנו הודעה. ספרו למי, לאן ומתי — ואנחנו נדאג לכל השאר.</p>
+          <div class="final-actions">
+            <a class="btn btn-primary" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%20%D7%A4%D7%A8%D7%97%D7%99%D7%9D%20%F0%9F%8C%B8" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>
+            <a class="btn btn-secondary" href="tel:+972522636363">או חייגו 052-263-6363</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div><div class="mini-brand" style="margin-bottom:10px"><strong>NINNYO</strong><span>FLOWERS</span></div><span>פרחים • משלוחים • רגעים מיוחדים</span></div>
+      <div class="footer-social"><a href="https://www.instagram.com/ninio_flowers/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@ninio_flowers" target="_blank" rel="noopener">TikTok</a><a href="mailto:shlimanda91@gmail.com">Email</a></div>
+      <div class="blessing">שבת שלום ומבורכת ♡</div>
+    </div>
+  </footer>
+
+  <a class="float-wa" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8" target="_blank" rel="noopener" aria-label="הזמנה בוואטסאפ">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
+  </a>
+
+  <div class="mobile-bar" aria-label="פעולות מהירות">
+    <a href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/></svg>וואטסאפ</a>
+    <a href="tel:+972522636363"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"/></svg>חיוג</a>
+    <a href="https://waze.com/ul/hsv8yd59ts" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z"/><circle cx="12" cy="10" r="2"/></svg>Waze</a>
+  </div>
+
+  <script>
+    (function(){
+      const root=document.documentElement;
+      const toggle=document.getElementById('themeToggle');
+      const icon=document.getElementById('themeIcon');
+      const stored=localStorage.getItem('ninnyo-theme');
+      const preferred=window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark';
+      const initial=stored || preferred;
+      setTheme(initial);
+
+      function setTheme(theme){
+        root.dataset.theme=theme;
+        localStorage.setItem('ninnyo-theme',theme);
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#fff9f3':'#0b0a09');
+        icon.innerHTML=theme==='light'
+          ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
+          : '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/>';
+        toggle.setAttribute('aria-label',theme==='light'?'מעבר למצב כהה':'מעבר למצב בהיר');
+      }
+      toggle.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
+
+      const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!reduce && 'IntersectionObserver' in window){
+        const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');obs.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px'});
+        document.querySelectorAll('.reveal,.stagger').forEach(el=>obs.observe(el));
+      } else {
+        document.querySelectorAll('.reveal,.stagger').forEach(el=>el.classList.add('is-visible'));
+      }
+
+      function upcomingFriday(){
+        const now=new Date();
+        const day=now.getDay();
+        let add=(5-day+7)%7;
+        if(add===0 && now.getHours()>=15) add=7;
+        const friday=new Date(now.getFullYear(),now.getMonth(),now.getDate()+add);
+        return friday;
+      }
+      const friday=upcomingFriday();
+      const fmt=new Intl.DateTimeFormat('he-IL',{weekday:'long',day:'numeric',month:'numeric'});
+      document.getElementById('fridayDate').textContent='ל'+fmt.format(friday)+' • 79 ₪ כולל משלוח בתוך פתח תקווה';
+
+      document.getElementById('quickForm').addEventListener('submit',function(ev){
+        ev.preventDefault();
+        const who=document.getElementById('recipient').value;
+        const dest=document.getElementById('destination').value.trim() || 'עדיין לא סגור';
+        const secret=document.getElementById('secret').checked ? 'כן — משלוח סודי / הפתעה' : 'לא';
+        const notes=document.getElementById('notes').value.trim() || 'אין';
+        const date=fmt.format(friday);
+        const msg=`שלום, הגעתי דרך האתר של NINNYO FLOWERS 🌸\nאני רוצה לשריין משלוח לשישי הקרוב (${date}).\n\nלמי שולחים: ${who}\nיעד: ${dest}\nמשלוח סודי: ${secret}\nהערות: ${notes}\n\nאשמח לבדוק זמינות.`;
+        window.open('https://wa.me/972522636363?text='+encodeURIComponent(msg),'_blank','noopener');
+      });
+    })();
+  </script>
+</body>
+</html>
