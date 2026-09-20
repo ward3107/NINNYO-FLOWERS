@@ -1,12 +1,26 @@
-# NINNYO FLOWERS landing page
+# NINNYO FLOWERS — production landing page
 
-Static RTL Hebrew landing page, ready for Vercel.
+Static Hebrew RTL landing page, ready for Vercel.
 
-## Deploy
-1. Upload this folder to a GitHub repository.
-2. Import the repository in Vercel.
-3. Framework preset: Other.
-4. Build command: none.
-5. Output directory: `.`
+## Included
+- Mobile-first responsive layout
+- Dark / Light theme
+- WhatsApp ordering flow
+- Friday delivery offer and quick order form
+- Call + Waze + Instagram + TikTok + Email actions
+- Native Share button (`navigator.share`) with copy-link fallback
+- Floating Back-to-top arrow after scrolling
+- Sticky mobile action bar
+- Reduced-motion accessibility support
+- No backend; order form data is not stored
 
-The page contains no backend and stores no order-form data; the quick order form only composes a WhatsApp message in the visitor's browser.
+## Deploy to Vercel
+1. Upload the **contents of this folder** to a GitHub repository. `index.html` must be at the repository root.
+2. In Vercel choose **Add New → Project**.
+3. Import the repository.
+4. Framework Preset: **Other**.
+5. Build Command: leave empty.
+6. Output Directory: leave empty or use `.`.
+7. Click **Deploy**.
+
+After deployment, the Share button will share the public Vercel URL automatically.

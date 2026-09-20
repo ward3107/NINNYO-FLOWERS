@@ -8,7 +8,10 @@
   <meta property="og:title" content="NINNYO FLOWERS | משלוחי פרחים בפתח תקווה" />
   <meta property="og:description" content="משלוחי שישי, הפתעות, אירועים ועסקים. זרים החל מ־40 ₪ והזמנה מהירה בוואטסאפ." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>NINNYO FLOWERS | משלוחי פרחים בפתח תקווה</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       --bg: #0b0a09;
@@ -349,6 +352,56 @@
     .float-wa::after { content:"הזמנה";position:absolute;left:72px;white-space:nowrap;padding:8px 10px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--line);font-size:.78rem;font-weight:900;color:var(--text);opacity:0;transform:translateX(-5px);transition:.2s;pointer-events:none; }
     .float-wa:hover::after { opacity:1;transform:none; }
 
+    .share-toast {
+      position: fixed;
+      left: 50%;
+      bottom: 96px;
+      transform: translate(-50%, 16px);
+      z-index: 1300;
+      padding: 11px 15px;
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--surface-solid) 92%, transparent);
+      border: 1px solid var(--line);
+      color: var(--text);
+      box-shadow: 0 16px 44px rgba(0,0,0,.24);
+      -webkit-backdrop-filter: blur(18px);
+      backdrop-filter: blur(18px);
+      font-weight: 800;
+      font-size: .86rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .22s ease, transform .22s ease, visibility .22s ease;
+    }
+    .share-toast.show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+
+    .back-to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 920;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--surface-solid) 82%, transparent);
+      color: var(--gold);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 16px 38px rgba(0,0,0,.25);
+      -webkit-backdrop-filter: blur(18px) saturate(1.15);
+      backdrop-filter: blur(18px) saturate(1.15);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px) scale(.94);
+      transition: opacity .25s ease, transform .25s ease, visibility .25s ease, background .2s ease;
+    }
+    .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .back-to-top:hover { transform: translateY(-2px) scale(1.02); background: var(--surface-strong); }
+    .back-to-top:active { transform: scale(.97); }
+    .back-to-top svg { width: 24px; height: 24px; }
+
     .mobile-bar { display:none; }
 
     .reveal { opacity:0; transform:translateY(28px); transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -450,13 +503,15 @@
 
       .float-wa { display:none; }
       .mobile-bar {
-        position:fixed;z-index:1100;display:grid;grid-template-columns:repeat(3,1fr);gap:8px;
+        position:fixed;z-index:1100;display:grid;grid-template-columns:repeat(4,1fr);gap:7px;
         left:8px;right:8px;bottom:max(8px,env(safe-area-inset-bottom));padding:8px;border-radius:22px;
         background:color-mix(in srgb,var(--bg) 72%,transparent);border:1px solid var(--line);backdrop-filter:blur(22px);box-shadow:0 16px 44px rgba(0,0,0,.24);
       }
       .mobile-bar a { min-height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;gap:7px;font-size:.78rem;font-weight:900;background:var(--surface);border:1px solid transparent; }
       .mobile-bar a:first-child { background:linear-gradient(135deg,#1fc276,#0aa05c);color:#fff; }
       .mobile-bar svg { width:20px;height:20px; }
+      .back-to-top { right:12px;bottom:calc(86px + env(safe-area-inset-bottom));width:48px;height:48px;border-radius:16px; }
+      .share-toast { bottom:calc(88px + env(safe-area-inset-bottom));max-width:calc(100% - 32px);text-align:center; }
       footer { padding-bottom:calc(110px + env(safe-area-inset-bottom)); }
     }
 
@@ -464,6 +519,7 @@
       .brand-name { font-size:3.65rem; }
       .info-grid { grid-template-columns:1fr; }
       .gallery-card,.gallery-card:last-child { min-height:390px; }
+      .mobile-bar a { font-size:.72rem;gap:5px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -488,6 +544,9 @@
         <a class="icon-btn wa-top" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%96%D7%A8%20%2F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97." target="_blank" rel="noopener" aria-label="פתיחת וואטסאפ">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
         </a>
+        <button class="icon-btn" id="shareBtnTop" type="button" aria-label="שיתוף האתר" title="שיתוף">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 16V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+        </button>
         <button class="icon-btn" id="themeToggle" type="button" aria-label="החלפת ערכת צבעים" title="Light / Dark">
           <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
         </button>
@@ -690,6 +749,10 @@
           <div class="final-actions">
             <a class="btn btn-primary" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97%20%D7%A4%D7%A8%D7%97%D7%99%D7%9D%20%F0%9F%8C%B8" target="_blank" rel="noopener">הזמנה בוואטסאפ</a>
             <a class="btn btn-secondary" href="tel:+972522636363">או חייגו 052-263-6363</a>
+            <button class="btn btn-secondary" id="shareBtnFinal" type="button">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 16V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
+              שתפו את NINNYO
+            </button>
           </div>
         </div>
       </div>
@@ -708,10 +771,17 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
   </a>
 
+  <button class="back-to-top" id="backToTop" type="button" aria-label="חזרה לראש הדף" title="חזרה למעלה">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+  </button>
+
+  <div class="share-toast" id="shareToast" role="status" aria-live="polite">הקישור הועתק ✓</div>
+
   <div class="mobile-bar" aria-label="פעולות מהירות">
     <a href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/></svg>וואטסאפ</a>
     <a href="tel:+972522636363"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"/></svg>חיוג</a>
     <a href="https://waze.com/ul/hsv8yd59ts" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-5 7-12a7 7 0 1 0-14 0c0 7 7 12 7 12Z"/><circle cx="12" cy="10" r="2"/></svg>Waze</a>
+    <a href="#" id="shareBtnMobile" role="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 16V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>שיתוף</a>
   </div>
 
   <script>
@@ -734,6 +804,75 @@
         toggle.setAttribute('aria-label',theme==='light'?'מעבר למצב כהה':'מעבר למצב בהיר');
       }
       toggle.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
+
+      const shareToast=document.getElementById('shareToast');
+      let toastTimer;
+      function showShareToast(message){
+        shareToast.textContent=message || 'הקישור הועתק ✓';
+        shareToast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer=setTimeout(()=>shareToast.classList.remove('show'),2200);
+      }
+
+      async function copyCurrentUrl(){
+        const url=window.location.href;
+        try{
+          if(navigator.clipboard && window.isSecureContext){
+            await navigator.clipboard.writeText(url);
+          } else {
+            const area=document.createElement('textarea');
+            area.value=url;
+            area.setAttribute('readonly','');
+            area.style.position='fixed';
+            area.style.opacity='0';
+            document.body.appendChild(area);
+            area.select();
+            document.execCommand('copy');
+            area.remove();
+          }
+          showShareToast('הקישור הועתק ✓');
+        }catch(err){
+          showShareToast('אפשר להעתיק את הקישור משורת הכתובת');
+        }
+      }
+
+      async function shareSite(event){
+        if(event) event.preventDefault();
+        const data={
+          title:'NINNYO FLOWERS',
+          text:'NINNYO FLOWERS — פרחים ומשלוחים בפתח תקווה 🌸',
+          url:window.location.href
+        };
+        try{
+          if(navigator.share && /^https?:$/i.test(window.location.protocol)){
+            await navigator.share(data);
+          } else {
+            await copyCurrentUrl();
+          }
+        }catch(err){
+          if(err && err.name!=='AbortError') await copyCurrentUrl();
+        }
+      }
+
+      ['shareBtnTop','shareBtnFinal','shareBtnMobile'].forEach(id=>{
+        const el=document.getElementById(id);
+        if(el) el.addEventListener('click',shareSite);
+      });
+
+      const backToTop=document.getElementById('backToTop');
+      let scrollTicking=false;
+      function updateBackToTop(){
+        backToTop.classList.toggle('show',window.scrollY>520);
+        scrollTicking=false;
+      }
+      window.addEventListener('scroll',()=>{
+        if(!scrollTicking){
+          scrollTicking=true;
+          window.requestAnimationFrame(updateBackToTop);
+        }
+      },{passive:true});
+      updateBackToTop();
+      backToTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:reduce?'auto':'smooth'}));
 
       const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(!reduce && 'IntersectionObserver' in window){
