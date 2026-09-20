@@ -235,8 +235,10 @@
     .site-header {
       position: fixed; top: var(--promo-h); inset-inline: 0; z-index: 1000;
       padding-top: max(9px, env(safe-area-inset-top));
-      transition: top .25s ease;
+      transition: top .25s ease, transform .3s ease;
     }
+    /* auto-hide the nav on scroll down, show it on scroll up */
+    .site-header.nav-hidden { transform: translateY(-130%); }
     .nav {
       height: var(--header-h);
       width: min(calc(100% - 24px), var(--max));
@@ -1063,13 +1065,21 @@
 
       const backToTop=document.getElementById('backToTop');
       const nav=document.getElementById('siteNav');
-      let scrollTicking=false;
+      const header=document.querySelector('.site-header');
+      let scrollTicking=false, lastY=window.scrollY;
       function onScroll(){
-        const y=window.scrollY;
+        const y=Math.max(0,window.scrollY);
         backToTop.classList.toggle('show',y>520);
         if(nav) nav.classList.toggle('scrolled',y>14);
         // hide the promo banner on scroll down; show it again near the top
         if(document.body.classList.contains('promo-on')) document.body.classList.toggle('promo-hidden',y>60);
+        // auto-hide the nav: hide when scrolling down, show when scrolling up / near top
+        if(header){
+          if(y<=80) header.classList.remove('nav-hidden');
+          else if(y>lastY+4) header.classList.add('nav-hidden');
+          else if(y<lastY-4) header.classList.remove('nav-hidden');
+        }
+        lastY=y;
         scrollTicking=false;
       }
       window.addEventListener('scroll',()=>{
