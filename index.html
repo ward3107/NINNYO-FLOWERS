@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="he" dir="rtl" data-theme="dark">
+<html lang="he" dir="rtl" data-theme="light">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#0c0a09" />
+  <meta name="theme-color" content="#f4f0e8" />
   <meta name="description" content="NINNYO FLOWERS — זרי פרחים ומשלוחים בפתח תקווה. משלוחי שישי, הפתעות, אירועים ועסקים. זרים החל מ־40 ₪ והזמנה מהירה בוואטסאפ." />
   <meta name="author" content="NINNYO FLOWERS" />
   <link rel="canonical" href="https://ninnyo.vercel.app/" />
@@ -99,40 +99,54 @@
 
   <style>
     :root {
-      /* palette — dark (default) */
-      --bg: #0c0a09;
-      --bg-soft: #151110;
-      --surface: rgba(255,255,255,.055);
-      --surface-strong: rgba(255,255,255,.11);
-      --surface-solid: #17120f;
-      --text: #fdf8f2;
-      --muted: #cdbfb2;
-      --faint: #8f8175;
-      --line: rgba(237,198,121,.20);
-      --line-strong: rgba(237,198,121,.34);
-      --gold: #ecc079;
-      --gold-2: #b9883e;
-      --rose: #ec7189;
-      --rose-2: #b93854;
+      /* ---------------------------------------------------------------
+         NINNYO FLOWERS — brand tokens (dark base; light/Ivory is default,
+         applied via html[data-theme="light"] below).
+         Palette per brand system: Ivory, Warm Paper, Botanical Green,
+         Leaf Green, Dusty Rose, Petal Pink, Ink.
+         Dark is a soft, warm botanical dark — never a dramatic black.
+      ---------------------------------------------------------------- */
+      --bg: #1a1e18;              /* soft warm botanical dark */
+      --bg-soft: #21261f;
+      --surface: rgba(244,240,232,.05);
+      --surface-strong: rgba(244,240,232,.10);
+      --surface-solid: #242a22;
+      --text: #f1ede4;           /* ivory on dark */
+      --muted: #bcc1b2;
+      --faint: #868c7b;
+      --line: rgba(244,240,232,.14);
+      --line-strong: rgba(244,240,232,.24);
+      --head: #f3efe7;           /* headings / wordmark (ivory on dark) */
+      --leaf: #aab396;           /* structural accent: eyebrows, numbers, price */
+      --leaf-strong: #c3cbb0;
+      --rose: #cf9d96;           /* Dusty Rose — accent (icons, hero accent) */
+      --rose-cta: #b16a63;       /* deepened Dusty Rose for filled CTAs (ivory text) */
+      --rose-cta-2: #9c554f;
+      --petal: #e3bdb5;          /* Petal Pink — soft accent only */
+      /* legacy aliases kept so component rules cascade to brand colors */
+      --gold: var(--leaf);
+      --gold-2: var(--leaf-strong);
+      --rose-2: var(--rose-cta);
       --cream: #fff4ea;
-      --green: #16b26a;
-      --green-2: #0a9a56;
-      --shadow-sm: 0 8px 26px rgba(0,0,0,.28);
-      --shadow: 0 24px 74px rgba(0,0,0,.42);
-      --shadow-glow: 0 30px 90px rgba(185,56,84,.18);
-      --blur: 18px;
+      --green: var(--rose-cta);  /* primary CTA is Dusty Rose, not green */
+      --green-2: var(--rose-cta-2);
+      --shadow-sm: 0 6px 18px rgba(0,0,0,.30);
+      --shadow: 0 18px 48px rgba(0,0,0,.40);
+      --shadow-glow: 0 22px 58px rgba(0,0,0,.30);
+      --blur: 14px;
 
-      /* type */
+      /* type — Editorial serif + clean Hebrew sans (two voices only) */
       --font-body: "Heebo", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       --font-head: "Frank Ruhl Libre", "Heebo", Georgia, serif;
       --font-mark: "Cormorant Garamond", Georgia, "Times New Roman", serif;
 
       /* geometry */
-      --radius-2xl: 36px;
-      --radius-xl: 30px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --radius-sm: 14px;
+      --radius-2xl: 34px;
+      --radius-xl: 26px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --pill: 999px;
       --max: 1200px;
       --header-h: 74px;
 
@@ -140,24 +154,33 @@
     }
 
     html[data-theme="light"] {
-      --bg: #fdf1e3;
-      --bg-soft: #f6e4d1;
-      --surface: rgba(255,246,234,.72);
-      --surface-strong: rgba(255,249,240,.92);
-      --surface-solid: #fff9f0;
-      --text: #2a1c12;
-      --muted: #6f5a49;
-      --faint: #a08874;
-      --line: rgba(151,97,38,.18);
-      --line-strong: rgba(151,97,38,.30);
-      --gold: #a56d24;
-      --gold-2: #7a4f18;
-      --rose: #ca4a67;
-      --rose-2: #a02545;
+      /* Ivory-first brand experience — the default */
+      --bg: #f4f0e8;             /* Ninnyo Ivory */
+      --bg-soft: #eae2d5;        /* Warm Paper */
+      --surface: #efe8db;        /* card / form surface */
+      --surface-strong: #f7f2ea; /* near-white — product cards, hover */
+      --surface-solid: #fbf8f1;
+      --text: #292b27;           /* Ink */
+      --muted: #5b6157;          /* muted leaf-ink */
+      --faint: #8a8c81;
+      --line: rgba(41,59,43,.14);      /* botanical-green hairline */
+      --line-strong: rgba(41,59,43,.26);
+      --head: #293b2b;           /* Botanical Green — headings / wordmark */
+      --leaf: #4f5b47;           /* structural accent (readable on ivory) */
+      --leaf-strong: #293b2b;
+      --rose: #b1655f;           /* Dusty Rose — accent (readable) */
+      --rose-cta: #a85b54;       /* filled CTA rose (ivory text, AA contrast) */
+      --rose-cta-2: #934b45;
+      --petal: #e3bdb5;          /* Petal Pink */
+      --gold: var(--leaf);
+      --gold-2: var(--leaf-strong);
+      --rose-2: var(--rose-cta);
       --cream: #fff5e8;
-      --shadow-sm: 0 8px 24px rgba(102,62,26,.11);
-      --shadow: 0 26px 70px rgba(102,62,26,.17);
-      --shadow-glow: 0 30px 80px rgba(202,74,103,.14);
+      --green: var(--rose-cta);
+      --green-2: var(--rose-cta-2);
+      --shadow-sm: 0 2px 10px rgba(41,45,39,.05);
+      --shadow: 0 12px 30px rgba(41,45,39,.08);
+      --shadow-glow: 0 16px 40px rgba(41,45,39,.06);
       color-scheme: light;
     }
 
@@ -169,10 +192,7 @@
       min-height: 100vh;
       font-family: var(--font-body);
       font-weight: 500;
-      background:
-        radial-gradient(1100px 620px at 8% -6%, rgba(236,113,137,.14), transparent 60%),
-        radial-gradient(1000px 560px at 96% -2%, rgba(236,192,121,.13), transparent 58%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
       line-height: 1.6;
@@ -181,18 +201,7 @@
       transition: background .4s ease, color .4s ease;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: -1;
-      background-image:
-        radial-gradient(circle at 30% 18%, rgba(255,255,255,.03), transparent 1px),
-        radial-gradient(circle at 72% 60%, rgba(255,255,255,.022), transparent 1px);
-      background-size: 22px 22px, 30px 30px;
-      opacity: .5;
-    }
+    /* airy by design — no page texture; the brand leans on white space */
 
     a { color: inherit; text-decoration: none; }
     button, input, select, textarea { font: inherit; color: inherit; }
@@ -226,7 +235,7 @@
     html[dir="rtl"] .eyebrow::before { background: linear-gradient(270deg, currentColor, transparent); }
 
     h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { font-family: var(--font-head); text-wrap: balance; font-weight: 900; }
+    h1, h2, h3 { font-family: var(--font-head); text-wrap: balance; font-weight: 700; color: var(--head); letter-spacing: -.005em; }
     h2 { font-size: clamp(2.1rem, 5vw, 3.7rem); line-height: 1.04; margin: 14px 0 16px; letter-spacing: -.01em; }
     h3 { font-weight: 700; }
     .lead { font-size: clamp(1.02rem, 1.7vw, 1.2rem); line-height: 1.75; color: var(--muted); max-width: 720px; font-weight: 500; }
@@ -246,8 +255,8 @@
       position: fixed; top: 0; inset-inline: 0; z-index: 1100;
       display: none; align-items: center; justify-content: center; gap: 12px;
       min-height: 44px; padding: max(8px, env(safe-area-inset-top)) 48px 8px 16px;
-      background: linear-gradient(90deg, var(--rose-2), var(--gold-2));
-      color: #fff; font-weight: 800; font-size: .92rem; text-align: center;
+      background: #2e4030;
+      color: #f4f0e8; font-weight: 700; font-size: .92rem; text-align: center;
       box-shadow: 0 6px 20px rgba(0,0,0,.22);
       transform: translateY(0); transition: transform .3s ease;
     }
@@ -289,8 +298,8 @@
     .nav.scrolled { box-shadow: 0 16px 44px rgba(0,0,0,.30); border-color: var(--line-strong); }
 
     .mini-brand { direction: ltr; display: grid; line-height: 1; gap: 3px; min-width: 128px; }
-    .mini-brand strong { font-family: var(--font-mark); font-weight: 600; letter-spacing: .12em; font-size: 1.42rem; color: var(--gold); }
-    .mini-brand span { font-family: var(--font-mark); letter-spacing: .42em; font-size: .58rem; color: var(--text); opacity: .8; }
+    .mini-brand strong { font-family: var(--font-head); font-weight: 700; letter-spacing: .04em; font-size: 1.34rem; color: var(--head); }
+    .mini-brand span { font-family: var(--font-body); font-weight: 600; letter-spacing: .34em; font-size: .56rem; color: var(--muted); }
     .mini-brand .brand-mark { height: 42px; width: auto; display: block; }
 
     .nav-links { display: flex; gap: 26px; align-items: center; font-weight: 700; font-size: .92rem; color: var(--muted); }
@@ -310,26 +319,23 @@
 
     /* ---------- buttons ---------- */
     .btn {
-      min-height: 56px; padding: 0 24px; border-radius: 16px; border: 1px solid var(--line);
+      min-height: 56px; padding: 0 26px; border-radius: var(--pill); border: 1px solid var(--line);
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      font-weight: 800; font-size: 1rem; letter-spacing: .01em;
-      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease, background .2s ease;
+      font-weight: 700; font-size: 1rem; letter-spacing: .01em;
+      transition: transform .2s ease, box-shadow .2s ease, filter .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
       cursor: pointer; position: relative; overflow: hidden;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn:active { transform: scale(.985); }
+    /* Primary — the single main action per viewport: Dusty Rose pill, ivory text */
     .btn-primary {
-      background: linear-gradient(135deg, #1cc072, var(--green-2));
-      color: #fff; border-color: transparent; box-shadow: 0 14px 36px rgba(22,181,103,.30);
+      background: var(--rose-cta);
+      color: #f4f0e8; border-color: transparent; box-shadow: var(--shadow-sm);
     }
-    .btn-primary:hover { filter: brightness(1.04); box-shadow: 0 18px 44px rgba(22,181,103,.36); }
-    .btn-primary::after {
-      content: ""; position: absolute; inset: -1px auto -1px -35%; width: 30%;
-      transform: skewX(-20deg); background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
-      animation: shine 5.5s infinite 1.4s;
-    }
-    .btn-secondary { background: var(--surface); color: var(--text); border-color: var(--line-strong); }
-    .btn-secondary:hover { background: var(--surface-strong); }
+    .btn-primary:hover { filter: brightness(1.05); box-shadow: var(--shadow); }
+    /* Secondary — transparent with a Dusty Rose outline */
+    .btn-secondary { background: transparent; color: var(--head); border-color: var(--rose); }
+    .btn-secondary:hover { background: color-mix(in srgb, var(--rose) 12%, transparent); }
     .btn-ghost { background: transparent; color: var(--text); border-color: var(--line-strong); }
     .btn svg { width: 22px; height: 22px; flex: 0 0 auto; }
 
@@ -364,31 +370,32 @@
       padding: 9px 14px; border-radius: 999px; border: 1px solid var(--line);
       background: var(--surface); display: flex; align-items: center; gap: 8px; font-weight: 600;
     }
-    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 4px rgba(236,192,121,.10); }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--rose); box-shadow: 0 0 0 4px color-mix(in srgb, var(--rose) 14%, transparent); }
 
     .hero-media { position: relative; min-height: 640px; }
     .hero-photo {
-      position: absolute; inset: 0 0 0 5%; border-radius: 40px; overflow: hidden;
-      box-shadow: var(--shadow), var(--shadow-glow); border: 1px solid var(--line-strong);
-      transform: rotate(-1.6deg);
+      position: absolute; inset: 0 0 0 5%; border-radius: var(--radius-2xl); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+      transform: rotate(-0.8deg);
     }
     .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 44%; }
-    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,.36)); }
+    /* soft light — no dramatic dark overlay on brand photography */
+    .hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 74%, rgba(41,59,43,.14)); }
 
     .hero-badge {
       position: absolute; left: -10px; bottom: 42px; z-index: 3; padding: 18px 20px; border-radius: 22px; max-width: 270px;
       background: color-mix(in srgb, var(--bg) 56%, transparent); border: 1px solid rgba(255,255,255,.16);
       -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); box-shadow: var(--shadow);
     }
-    .hero-badge strong { display: block; font-family: var(--font-head); font-size: 1.7rem; color: var(--gold); margin-bottom: 4px; }
+    .hero-badge strong { display: block; font-family: var(--font-head); font-size: 1.7rem; color: var(--head); margin-bottom: 4px; }
     .hero-badge span { color: var(--muted); line-height: 1.45; font-size: .92rem; }
 
     .floating-card {
-      position: absolute; top: 54px; right: -10px; z-index: 4; border-radius: 20px; padding: 15px 17px;
-      background: rgba(255,244,234,.95); color: #281b17; transform: rotate(3deg);
-      box-shadow: 0 20px 52px rgba(0,0,0,.26); font-weight: 600;
+      position: absolute; top: 54px; right: -10px; z-index: 4; border-radius: var(--radius-md); padding: 15px 17px;
+      background: var(--surface-solid); color: var(--text); transform: rotate(2deg);
+      border: 1px solid var(--line); box-shadow: var(--shadow); font-weight: 600;
     }
-    .floating-card b { color: #ae2948; display: block; margin-bottom: 3px; font-family: var(--font-head); }
+    .floating-card b { color: var(--rose); display: block; margin-bottom: 3px; font-family: var(--font-head); }
 
     /* ---------- friday ---------- */
     .friday-wrap { margin-top: -18px; }
@@ -397,11 +404,11 @@
       min-height: 520px; border: 1px solid var(--line-strong); background: var(--surface-solid); box-shadow: var(--shadow);
     }
     .friday-copy { padding: clamp(32px, 5vw, 70px); display: flex; flex-direction: column; justify-content: center; position: relative; }
-    .friday-copy::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 90% 16%, rgba(236,113,137,.16), transparent 36%); pointer-events: none; }
+    .friday-copy::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 90% 16%, color-mix(in srgb, var(--petal) 22%, transparent), transparent 38%); pointer-events: none; }
     .friday-title { font-size: clamp(2.3rem, 5.4vw, 4.6rem); line-height: .98; margin: 14px 0 18px; letter-spacing: -.01em; }
     .friday-title em { font-style: italic; color: var(--rose); font-weight: 700; }
     .price-line { display: flex; align-items: baseline; gap: 12px; margin: 20px 0 14px; }
-    .price-line .price { font-family: var(--font-head); font-size: clamp(3.4rem, 8vw, 5.6rem); font-weight: 900; line-height: .8; color: var(--gold); letter-spacing: -.02em; }
+    .price-line .price { font-family: var(--font-head); font-size: clamp(3.4rem, 8vw, 5.6rem); font-weight: 700; line-height: .8; color: var(--head); letter-spacing: -.02em; }
     .price-line span:last-child { color: var(--muted); font-weight: 700; }
     .friday-photo { position: relative; min-height: 520px; overflow: hidden; }
     .friday-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 44%; }
@@ -422,7 +429,7 @@
       border-radius: 14px; min-height: 50px; padding: 11px 13px; outline: none; transition: border-color .2s ease, box-shadow .2s ease;
     }
     .field textarea { min-height: 84px; resize: vertical; }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(236,192,121,.14); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--rose); box-shadow: 0 0 0 3px color-mix(in srgb, var(--rose) 20%, transparent); }
     .toggle-row { display: flex; align-items: center; gap: 12px; }
     .switch { position: relative; width: 48px; height: 28px; flex: 0 0 auto; }
     .switch input { opacity: 0; width: 0; height: 0; position: absolute; }
@@ -440,7 +447,7 @@
       background: var(--surface); border: 1px solid var(--line);
     }
     .delivery-card:hover { transform: translateY(-6px); border-color: var(--line-strong); box-shadow: var(--shadow-sm); }
-    .delivery-card .icon { width: 54px; height: 54px; border-radius: 16px; display: grid; place-items: center; background: rgba(236,113,137,.14); color: var(--rose); margin-bottom: 22px; }
+    .delivery-card .icon { width: 54px; height: 54px; border-radius: var(--radius-md); display: grid; place-items: center; background: color-mix(in srgb, var(--rose) 13%, transparent); color: var(--rose); margin-bottom: 22px; }
     .delivery-card .icon svg { width: 28px; height: 28px; }
     .delivery-card h3 { font-size: 1.38rem; margin-bottom: 10px; }
     .delivery-card p { color: var(--muted); line-height: 1.7; margin-bottom: 0; }
@@ -448,7 +455,7 @@
 
     .story-strip {
       margin-top: 36px; border-radius: var(--radius-lg); padding: 26px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      border: 1px solid var(--line-strong); background: linear-gradient(135deg, rgba(236,113,137,.14), rgba(236,192,121,.07));
+      border: 1px solid var(--line-strong); background: var(--surface);
     }
     .story-strip strong { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.3rem, 2.2vw, 1.85rem); display: block; margin-bottom: 4px; }
     .story-strip span { color: var(--muted); }
@@ -471,7 +478,7 @@
     .bouquet-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 40px; }
     .bouquet-card {
       display: flex; flex-direction: column; text-align: start; width: 100%; padding: 0;
-      background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg);
+      background: var(--surface-strong); border: 1px solid var(--line); border-radius: var(--radius-md);
       overflow: hidden; cursor: pointer; position: relative; font: inherit; color: inherit;
       transition: transform .26s cubic-bezier(.2,.7,.2,1), border-color .26s ease, box-shadow .26s ease, background .26s ease;
     }
@@ -484,13 +491,14 @@
     .bouquet-name { font-family: var(--font-head); font-weight: 700; font-size: 1.24rem; line-height: 1.1; }
     .bouquet-desc { color: var(--muted); font-size: .89rem; line-height: 1.5; min-height: 2.68em; }
     .bouquet-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
-    .bouquet-price { color: var(--gold); font-weight: 800; font-size: 1.06rem; }
+    .bouquet-price { color: var(--head); font-weight: 700; font-size: 1.08rem; }
     .bouquet-add {
-      font-size: .78rem; font-weight: 800; letter-spacing: .02em; color: var(--muted); cursor: pointer;
-      background: transparent; border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 16px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .02em; color: var(--rose); cursor: pointer;
+      background: transparent; border: 1px solid var(--rose); border-radius: 999px; padding: 7px 16px;
       transition: color .2s ease, border-color .2s ease, background .2s ease;
     }
-    .bouquet-card:hover .bouquet-add { color: var(--text); border-color: var(--gold); }
+    .bouquet-add:hover { background: color-mix(in srgb, var(--rose) 12%, transparent); }
+    .bouquet-card:hover .bouquet-add { color: var(--rose); border-color: var(--rose); }
     .bouquet-qty {
       display: none; align-items: center; gap: 2px; border: 1px solid var(--gold);
       border-radius: 999px; overflow: hidden; background: color-mix(in srgb, var(--gold) 12%, transparent);
@@ -515,6 +523,13 @@
     .bouquet-grid.is-visible > *:nth-child(6) { transition-delay: .38s; }
     .bouquet-grid.is-visible > *:nth-child(7) { transition-delay: .46s; }
     .bouquet-grid.is-visible > *:nth-child(8) { transition-delay: .54s; }
+    /* brand micro-label: turns the real-photo rule into a mark of trust */
+    .real-photo-note {
+      display: inline-flex; align-items: center; gap: 8px; margin: 16px 0 0; padding: 7px 14px;
+      border: 1px solid var(--line-strong); border-radius: var(--pill); background: var(--surface);
+      font-size: .8rem; font-weight: 700; letter-spacing: .01em; color: var(--leaf);
+    }
+    .real-photo-note svg { width: 15px; height: 15px; flex: 0 0 auto; }
     .pick-cta { display: flex; justify-content: center; margin-top: 32px; }
     .pick-cta .btn { min-width: 300px; max-width: 100%; }
 
@@ -561,7 +576,7 @@
     }
     .reason-item:hover { transform: translateX(-4px); border-color: var(--line-strong); }
     html[dir="rtl"] .reason-item:hover { transform: translateX(4px); }
-    .reason-item .r-icon { width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; color: var(--rose); background: rgba(236,113,137,.12); font-size: 1.3rem; }
+    .reason-item .r-icon { width: 50px; height: 50px; border-radius: 15px; display: grid; place-items: center; color: var(--rose); background: color-mix(in srgb, var(--rose) 12%, transparent); font-size: 1.3rem; }
     .reason-item strong { display: block; font-size: 1.04rem; margin-bottom: 3px; font-family: var(--font-head); font-weight: 700; }
     .reason-item span { color: var(--muted); font-size: .92rem; }
     .reason-photo { border-radius: var(--radius-2xl); overflow: hidden; min-height: 600px; border: 1px solid var(--line-strong); position: relative; box-shadow: var(--shadow), var(--shadow-glow); }
@@ -595,7 +610,7 @@
     .contact-link small { color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 290px; direction: ltr; }
     .contact-link .arrow { color: var(--gold); font-size: 1.1rem; }
     .location-card { position: relative; overflow: hidden; }
-    .location-card::before { content: ""; position: absolute; width: 270px; height: 270px; border-radius: 50%; left: -85px; top: -75px; background: rgba(236,192,121,.12); filter: blur(4px); }
+    .location-card::before { content: ""; position: absolute; width: 270px; height: 270px; border-radius: 50%; left: -85px; top: -75px; background: color-mix(in srgb, var(--petal) 18%, transparent); filter: blur(4px); }
     .location-card > * { position: relative; z-index: 1; }
     .location-card h3 { font-size: 1.7rem; margin: 15px 0 8px; }
     .location-card p { color: var(--muted); line-height: 1.68; }
@@ -604,11 +619,11 @@
     .final-cta { padding-bottom: 132px; }
     .final-card {
       border-radius: var(--radius-2xl); padding: clamp(38px, 6vw, 78px); text-align: center; position: relative; overflow: hidden;
-      border: 1px solid var(--line-strong); background: linear-gradient(135deg, rgba(236,113,137,.16), rgba(236,192,121,.09));
+      border: 1px solid var(--line-strong); background: linear-gradient(160deg, color-mix(in srgb, var(--petal) 26%, var(--bg)), var(--bg));
     }
     .final-card::before, .final-card::after { content: ""; position: absolute; border-radius: 50%; filter: blur(1px); pointer-events: none; }
-    .final-card::before { width: 260px; height: 260px; background: rgba(236,113,137,.12); right: -95px; top: -115px; }
-    .final-card::after { width: 230px; height: 230px; background: rgba(236,192,121,.09); left: -85px; bottom: -115px; }
+    .final-card::before { width: 260px; height: 260px; background: color-mix(in srgb, var(--petal) 20%, transparent); right: -95px; top: -115px; }
+    .final-card::after { width: 230px; height: 230px; background: color-mix(in srgb, var(--leaf) 10%, transparent); left: -85px; bottom: -115px; }
     .final-card h2 { max-width: 800px; margin: 12px auto 16px; }
     .final-card .lead { margin: 0 auto 28px; }
     .final-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
@@ -624,8 +639,8 @@
     /* ---------- floating / mobile ---------- */
     .float-wa {
       position: fixed; left: 20px; bottom: 20px; z-index: 900; width: 64px; height: 64px; border-radius: 22px;
-      background: linear-gradient(135deg, #22c77a, var(--green-2)); display: grid; place-items: center; color: #fff;
-      box-shadow: 0 18px 40px rgba(13,162,91,.38); border: 1px solid rgba(255,255,255,.24); transition: .2s;
+      background: var(--rose-cta); display: grid; place-items: center; color: #f4f0e8;
+      box-shadow: var(--shadow); border: 1px solid color-mix(in srgb, #f4f0e8 24%, transparent); transition: .2s;
     }
     .float-wa:hover { transform: translateY(-3px) scale(1.03); }
     .float-wa svg { width: 31px; height: 31px; }
@@ -671,7 +686,7 @@
     .mini-cart .mc-info strong { font-family: var(--font-head); }
     .mini-cart .mc-go {
       min-height: 44px; padding: 0 20px; border-radius: 999px; border: none; cursor: pointer; white-space: nowrap;
-      background: linear-gradient(135deg, #1cc072, var(--green-2)); color: #fff; font-weight: 800; font-size: .92rem;
+      background: var(--rose-cta); color: #f4f0e8; font-weight: 700; font-size: .92rem;
       transition: filter .2s ease, transform .2s ease;
     }
     .mini-cart .mc-go:hover { filter: brightness(1.05); transform: translateY(-1px); }
@@ -790,7 +805,7 @@
         -webkit-backdrop-filter: blur(22px); backdrop-filter: blur(22px); box-shadow: 0 16px 46px rgba(0,0,0,.26);
       }
       .mobile-bar a { min-height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; gap: 7px; font-size: .78rem; font-weight: 800; background: var(--surface); border: 1px solid transparent; }
-      .mobile-bar a:first-child { background: linear-gradient(135deg, #22c77a, var(--green-2)); color: #fff; }
+      .mobile-bar a:first-child { background: var(--rose-cta); color: #f4f0e8; }
       .mobile-bar svg { width: 20px; height: 20px; }
       .back-to-top { right: 12px; bottom: calc(86px + env(safe-area-inset-bottom)); width: 48px; height: 48px; border-radius: 16px; }
       .mini-cart { bottom: calc(150px + env(safe-area-inset-bottom)); }
@@ -822,7 +837,8 @@
   <header class="site-header" aria-label="ניווט ראשי">
     <nav class="nav" id="siteNav">
       <a href="#home" class="mini-brand" aria-label="NINNYO FLOWERS - לדף הבית">
-        <img class="brand-mark" src="/header-wordmark.png" alt="NINNYO FLOWERS" width="325" height="96" />
+        <strong>NINNYO</strong>
+        <span>FLOWERS</span>
       </a>
       <div class="nav-links">
         <a href="#pick">הזרים</a>
@@ -886,6 +902,7 @@
           <span class="eyebrow reveal">הקטלוג שלנו</span>
           <h2 class="reveal">בחרו את הזר שלכם</h2>
           <p class="lead reveal">כל זר בעבודת יד. אפשר לבחור כמה זרים שרוצים — ואנחנו דואגים לשאר. כל הזרים ב־<strong>79 ₪</strong> לזר, כולל משלוח בתוך פתח תקווה.</p>
+          <span class="real-photo-note reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 8h3l1.5-2h7L17 8h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>צילום אמיתי מהדוכן שלנו</span>
         </div>
         <div class="bouquet-grid stagger reveal" id="bouquetGrid" role="group" aria-label="בחירת זר">
 
@@ -1161,7 +1178,7 @@
             <h3>יוניברס פתח תקווה — סגולה</h3>
             <p><strong style="color:var(--text)">בכניסה ליוניברס</strong><br>שופרסל דיל אקסטרה סגולה<br>הרב פינטו מסעוד אשר 18, פתח תקווה</p>
             <div class="cta-row" style="margin-bottom:14px">
-              <a class="btn btn-primary" style="background:linear-gradient(135deg,#48a6ff,#1977d2);box-shadow:0 14px 36px rgba(43,139,225,.24)" href="https://waze.com/ul/hsv8yd59ts" target="_blank" rel="noopener">ניווט עם Waze</a>
+              <a class="btn btn-secondary" href="https://waze.com/ul/hsv8yd59ts" target="_blank" rel="noopener">ניווט עם Waze</a>
               <a class="btn btn-secondary" href="tel:+972542948073">הסתבכתם? 054-294-8073</a>
             </div>
             <p style="font-size:.82rem;margin:0;color:var(--muted)">אם אתם לא מוצאים אותנו בכניסה ליוניברס — התקשרו ונכוון אתכם.</p>
@@ -1178,7 +1195,7 @@
             <span>עקבו אחרינו באינסטגרם וכתבו לנו ביקורת קצרה בגוגל — זה עוזר לנו המון להגיע לעוד לקוחות.</span>
           </div>
           <div class="cta-row" style="margin:0">
-            <a class="btn btn-primary" style="background:linear-gradient(135deg,#f58529,#dd2a7b 55%,#8134af);box-shadow:0 14px 36px rgba(221,42,123,.28)" href="https://www.instagram.com/ninio_flowers/" target="_blank" rel="noopener">
+            <a class="btn btn-secondary" href="https://www.instagram.com/ninio_flowers/" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
               עקבו באינסטגרם
             </a>
@@ -1246,15 +1263,15 @@
       const toggle=document.getElementById('themeToggle');
       const icon=document.getElementById('themeIcon');
       const stored=localStorage.getItem('ninnyo-theme');
-      const preferred=window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light':'dark';
-      const initial=stored || preferred;
+      // Ivory-first: light is the brand default; visitors can still switch to the soft dark.
+      const initial=stored || 'light';
       const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       setTheme(initial);
 
       function setTheme(theme){
         root.dataset.theme=theme;
         try{ localStorage.setItem('ninnyo-theme',theme); }catch(e){}
-        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#fdf1e3':'#0c0a09');
+        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#f4f0e8':'#1a1e18');
         icon.innerHTML=theme==='light'
           ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
           : '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/>';
