@@ -35,7 +35,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <link rel="preload" as="image" href="red-bouquet.webp" imagesrcset="red-bouquet-thumb.webp 297w, red-bouquet.webp 1087w" imagesizes="(max-width:980px) 90vw, 46vw" />
+  <link rel="preload" as="image" href="hero-bud.webp" type="image/webp" />
+  <link rel="preload" as="image" href="hero-opening.webp" type="image/webp" />
+  <link rel="preload" as="image" href="hero-editorial.webp" type="image/webp" />
 
   <script type="application/ld+json">
   {
@@ -823,6 +825,91 @@
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
       .reveal, .stagger > * { opacity: 1 !important; transform: none !important; }
     }
+
+    /* 2026 brand-system refinement: the flowers carry the emotion; the UI stays quiet. */
+    .site-header { padding-top: 0; }
+    .nav {
+      width: min(calc(100% - 48px), var(--max));
+      margin-top: 0;
+      border-radius: 0;
+      border-width: 0 0 1px;
+      padding-inline: 0;
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      box-shadow: none;
+      backdrop-filter: blur(18px);
+    }
+    .nav.scrolled { box-shadow: none; border-color: var(--line-strong); }
+    .icon-btn { border: 0; border-radius: 50%; background: transparent; }
+    .icon-btn:hover { transform: none; background: var(--bg-soft); }
+
+    .hero { --bud-opacity: 1; --opening-opacity: 0; --bloom-opacity: 0; display: block; min-height: 240svh; padding: 0; overflow: visible; }
+    .hero::after { display: none; }
+    .hero-grid { position: sticky; top: calc(var(--promo-h) + var(--header-h)); width: 100%; max-width: none; min-height: calc(100svh - var(--promo-h) - var(--header-h)); display: grid; grid-template-columns: 1fr; padding-inline: clamp(28px,7vw,112px); overflow: hidden; isolation: isolate; }
+    .hero-copy { z-index: 3; width: min(540px,43vw); justify-self: start; align-self: center; padding-block: 54px; }
+    .hero-kicker { color: var(--leaf); margin-bottom: 28px; font-size: .82rem; letter-spacing: .18em; }
+    .hero h1 { max-width: 8ch; font-size: clamp(4.3rem,7.3vw,7rem); line-height: .9; font-weight: 500; letter-spacing: -.035em; margin-bottom: 30px; }
+    .hero .lead { max-width: 30rem; font-size: 1.14rem; line-height: 1.75; }
+    .cta-row { margin-top: 36px; }
+    .btn-primary { box-shadow: none; }
+    .btn-primary:hover { box-shadow: none; }
+    .trust-row { gap: 0; margin-top: 34px; border-top: 1px solid var(--line); padding-top: 18px; }
+    .trust-pill { padding: 4px 0; margin-inline-end: 24px; border: 0; border-radius: 0; background: transparent; font-size: .84rem; }
+    .dot { width: 5px; height: 5px; box-shadow: none; }
+    .hero-media { position: absolute; inset: 0; min-height: 0; max-width: none; width: 100%; margin: 0; z-index: 0; animation: none; }
+    .hero-media::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(270deg, rgba(244,240,232,.98) 0%, rgba(244,240,232,.91) 30%, rgba(244,240,232,.54) 49%, rgba(244,240,232,.08) 72%, transparent 100%); }
+    .hero-photo { position: absolute; inset: 0; border: 0; border-radius: 0; box-shadow: none; transform: none; }
+    .hero-photo img { object-position: center 48%; }
+    .hero-frame { position: absolute; inset: 0; transition: opacity .12s linear; will-change: opacity; }
+    .hero-frame-bud { opacity: var(--bud-opacity); }
+    .hero-frame-opening { opacity: var(--opening-opacity); }
+    .hero-frame-bloom { opacity: var(--bloom-opacity); }
+    .hero-photo::after { display: none; }
+    .hero-caption { position: absolute; z-index: 2; inset-inline-end: clamp(28px,4vw,64px); bottom: 24px; margin: 0; color: var(--head); font-size: .82rem; font-weight: 600; }
+    .bloom-progress { position: absolute; z-index: 3; inset-inline-start: clamp(28px,4vw,64px); bottom: 26px; display: flex; gap: 7px; }
+    .bloom-progress span { width: 24px; height: 2px; background: rgba(41,59,43,.24); }
+    .bloom-progress span:nth-child(1) { opacity: calc(.25 + var(--bud-opacity)); background: var(--head); }
+    .bloom-progress span:nth-child(2) { opacity: calc(.25 + var(--opening-opacity)); background: var(--head); }
+    .bloom-progress span:nth-child(3) { opacity: calc(.25 + var(--bloom-opacity)); background: var(--head); }
+
+    .section-head { margin-bottom: 34px; }
+    .eyebrow { letter-spacing: .02em; text-transform: none; font-size: .82rem; }
+    .eyebrow::before { width: 22px; background: currentColor !important; opacity: .55; }
+    .bouquet-card { border-radius: 10px; box-shadow: none; background: var(--surface-solid); }
+    .bouquet-card:hover { transform: translateY(-2px); box-shadow: none; }
+    .bouquet-media { aspect-ratio: 4 / 3; }
+    .bouquet-card:hover .bouquet-media img { transform: scale(1.015); }
+    .bouquet-add { border-radius: var(--pill); }
+
+    @media (max-width: 980px) {
+      .nav { width: calc(100% - 28px); }
+      .hero { min-height: 220svh; }
+      .hero-grid { grid-template-columns: 1fr; padding-inline: 28px; }
+      .hero-copy { width: min(520px,66vw); justify-self: start; text-align: right; padding-block: 34px 12px; }
+      .hero-copy .lead { margin-inline: 0; }
+      .cta-row, .trust-row { justify-content: flex-start; }
+      .hero h1 { max-width: 10ch; }
+    }
+
+    @media (max-width: 640px) {
+      .nav { width: calc(100% - 20px); border-radius: 0; margin-top: 0; }
+      .hero { min-height: 210svh; padding-top: 0; }
+      .hero-grid { top: calc(var(--promo-h) + var(--header-h)); min-height: calc(100svh - var(--promo-h) - var(--header-h)); align-content: center; padding-inline: 20px; }
+      .hero h1 { font-size: clamp(3.5rem,17vw,5rem); max-width: 8ch; }
+      .hero-copy { width: 100%; padding-block: 22px 0; }
+      .hero-kicker { margin-bottom: 20px; }
+      .hero-media::after { background: linear-gradient(180deg, rgba(244,240,232,.96) 0%, rgba(244,240,232,.84) 46%, rgba(244,240,232,.4) 72%, rgba(244,240,232,.12) 100%); }
+      .hero-photo img { object-position: 42% center; }
+      .hero-caption { inset-inline-end: 20px; bottom: 14px; }
+      .bloom-progress { inset-inline-start: 20px; bottom: 18px; }
+      .trust-row { overflow: visible; flex-wrap: wrap; }
+      .trust-pill { margin-inline-end: 16px; }
+      .bouquet-media { aspect-ratio: 4 / 3; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero { min-height: auto; padding-top: calc(var(--header-h) + 26px); --bud-opacity: 0; --opening-opacity: 0; --bloom-opacity: 1; }
+      .hero-grid { position: relative; top: auto; }
+    }
   </style>
 </head>
 <body>
@@ -855,9 +942,6 @@
         <button class="icon-btn" id="shareBtnTop" type="button" aria-label="שיתוף האתר" title="שיתוף">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 16V3"/><path d="m7 8 5-5 5 5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>
         </button>
-        <button class="icon-btn" id="themeToggle" type="button" aria-label="החלפת ערכת צבעים" title="Light / Dark">
-          <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
-        </button>
       </div>
     </nav>
   </header>
@@ -866,9 +950,9 @@
     <section class="hero" id="home">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="hero-kicker"><svg viewBox="0 0 64 64" fill="currentColor" aria-hidden="true"><g><ellipse cx="32" cy="16" rx="6" ry="11"/><ellipse cx="46" cy="24" rx="6" ry="11" transform="rotate(60 46 24)"/><ellipse cx="46" cy="40" rx="6" ry="11" transform="rotate(120 46 40)"/><ellipse cx="32" cy="48" rx="6" ry="11"/><ellipse cx="18" cy="40" rx="6" ry="11" transform="rotate(60 18 40)"/><ellipse cx="18" cy="24" rx="6" ry="11" transform="rotate(120 18 24)"/><circle cx="32" cy="32" r="6"/></g></svg>NINNYO FLOWERS · פתח תקווה</span>
-          <h1>משלוחי פרחים <span class="accent">בלי כאב ראש.</span></h1>
-          <p class="lead">אתם בוחרים למי לשמח את היום — אנחנו דואגים לזר, לתיאום ולמשלוח עד אליכם או ישירות למי שתרצו להפתיע.</p>
+          <span class="hero-kicker">NINNYO FLOWERS · פתח תקווה</span>
+          <h1>פרחים ליום<br>טוב יותר.</h1>
+          <p class="lead">בוחרים זר אמיתי מהדוכן שלנו. אנחנו דואגים לתיאום ולמשלוח.</p>
           <div class="cta-row">
             <a class="btn btn-primary" href="https://wa.me/972522636363?text=%D7%A9%D7%9C%D7%95%D7%9D%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%93%D7%A8%D7%9A%20%D7%94%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%20NINNYO%20FLOWERS%20%F0%9F%8C%B8%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%96%D7%9E%D7%99%D7%9F%20%D7%96%D7%A8%20%2F%20%D7%9E%D7%A9%D7%9C%D7%95%D7%97." target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.7 7.4L3.5 20.5l1.4-4.2A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.7 8.1c.4-.4.8-.4 1 0l1 1.7c.2.4.1.7-.2 1l-.5.5c.6 1.4 1.6 2.4 3 3l.5-.6c.3-.3.7-.4 1-.2l1.8 1c.3.2.4.6.1 1-.7.8-1.6 1.2-2.5 1-3.5-.8-6.3-3.5-7.1-7-.2-.6.3-1.3.9-1.4Z"/></svg>
@@ -886,12 +970,14 @@
           </div>
         </div>
 
-        <div class="hero-media" aria-label="זר ורדים של NINNYO FLOWERS">
+        <div class="hero-media" aria-label="פרחים בגוני קרם וורוד, צילום אווירה של NINNYO FLOWERS">
           <div class="hero-photo">
-            <img src="red-bouquet.webp" srcset="red-bouquet-thumb.webp 297w, red-bouquet.webp 1087w" sizes="(max-width:980px) 90vw, 46vw" width="1087" height="1536" alt="זר ורדים אדומים בעיצוב NINNYO FLOWERS" fetchpriority="high" decoding="async" />
+            <img class="hero-frame hero-frame-bud" src="hero-bud.webp" width="1536" height="1024" alt="ניצני פרחים בגוני קרם וורוד עם אקליפטוס" fetchpriority="high" decoding="async" />
+            <img class="hero-frame hero-frame-opening" src="hero-opening.webp" width="1536" height="1024" alt="פרחים בגוני קרם וורוד מתחילים להיפתח" decoding="async" />
+            <img class="hero-frame hero-frame-bloom" src="hero-editorial.webp" width="1536" height="1024" alt="פרחים פתוחים בגוני קרם וורוד עם אקליפטוס" decoding="async" />
           </div>
-          <div class="floating-card"><b>רוצים להפתיע?</b><span>אפשר גם משלוח סודי 💗</span></div>
-          <div class="hero-badge"><strong>79 ₪</strong><span>בימי שישי — זר + משלוח בתוך פתח תקווה</span></div>
+          <div class="bloom-progress" aria-hidden="true"><span></span><span></span><span></span></div>
+          <p class="hero-caption">אותם פרחים. חוויה יפה יותר.</p>
         </div>
       </div>
     </section>
@@ -1260,24 +1346,31 @@
   <script>
     (function(){
       const root=document.documentElement;
-      const toggle=document.getElementById('themeToggle');
-      const icon=document.getElementById('themeIcon');
-      const stored=localStorage.getItem('ninnyo-theme');
-      // Ivory-first: light is the brand default; visitors can still switch to the soft dark.
-      const initial=stored || 'light';
       const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      setTheme(initial);
 
-      function setTheme(theme){
-        root.dataset.theme=theme;
-        try{ localStorage.setItem('ninnyo-theme',theme); }catch(e){}
-        document.querySelector('meta[name="theme-color"]').setAttribute('content',theme==='light'?'#f4f0e8':'#1a1e18');
-        icon.innerHTML=theme==='light'
-          ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>'
-          : '<path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/>';
-        toggle.setAttribute('aria-label',theme==='light'?'מעבר למצב כהה':'מעבר למצב בהיר');
+      /* Scroll signature: one still camera, three stages of the same bloom. */
+      const hero=document.querySelector('.hero');
+      let bloomTick=false;
+      function updateBloom(){
+        bloomTick=false;
+        if(!hero || reduce) return;
+        const travel=Math.max(1,hero.offsetHeight-window.innerHeight);
+        const progress=Math.max(0,Math.min(1,(window.scrollY-hero.offsetTop)/travel));
+        const bud=Math.max(0,1-progress*2);
+        const opening=Math.max(0,1-Math.abs(progress-.5)*2);
+        const bloom=Math.max(0,(progress-.5)*2);
+        hero.style.setProperty('--bud-opacity',bud.toFixed(3));
+        hero.style.setProperty('--opening-opacity',opening.toFixed(3));
+        hero.style.setProperty('--bloom-opacity',bloom.toFixed(3));
       }
-      toggle.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
+      function requestBloomUpdate(){
+        if(bloomTick) return;
+        bloomTick=true;
+        requestAnimationFrame(updateBloom);
+      }
+      updateBloom();
+      window.addEventListener('scroll',requestBloomUpdate,{passive:true});
+      window.addEventListener('resize',requestBloomUpdate,{passive:true});
 
       const shareToast=document.getElementById('shareToast');
       let toastTimer;

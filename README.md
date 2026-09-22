@@ -22,7 +22,7 @@ Ordering runs entirely through a pre-filled **WhatsApp** message — no backend.
 ## What's on the page
 
 - **Brand logo** — clean *NINNYO / FLOWERS* wordmark set in Botanical Green in the header (per the brand system). The social share card (`og-image.jpg` / `api/og.js`), favicon (`favicon.svg`) and app / home-screen icons (`icon-192.png`, `icon-512.png`, `apple-touch-icon.png`) are all brand-generated in the Ivory + Botanical Green palette. The original raster logos (`ninnyo-flowers-logo.png`, `header-wordmark.png`) remain in the repo but are no longer referenced by the page.
-- **Hero** — brand + location kicker, headline, quick contact, and the Friday delivery offer (79 ₪ incl. delivery inside Petah Tikva).
+- **Hero** — a full-bleed, scroll-driven `BUD → OPENING → BLOOM` background sequence. The fixed copy sits over a directional ivory wash, with no image card or visible frame. The final bloom is shown as a static fallback when reduced motion is preferred.
 - **Bouquet picker (`#pick`)** — 8 hand-named bouquets at 79 ₪ each (רוני / גלי / נוגה / טל / ליבי / ניצן / יערה / שחר). **Multi-select cart** with per-bouquet quantity steppers, a live summary chip, a "המשך להזמנה" button, and a **sticky mini-cart** that follows while browsing. The whole selection is itemized (per-item + total) into the WhatsApp order.
 - **Rich order form** — recipient, occasion, timing, destination, sender name, recipient phone, secret-surprise toggle, and notes — all folded into **one** pre-filled WhatsApp message to the shop.
 - **Delivery types**, real "from the field" photo gallery, and reasons-to-send.
@@ -33,7 +33,7 @@ Ordering runs entirely through a pre-filled **WhatsApp** message — no backend.
 
 - Mobile-first responsive layout
 - **Brand system aligned** — Ivory-first palette (Ninnyo Ivory, Warm Paper, Botanical Green, Leaf Green, Dusty Rose, Petal Pink, Ink), editorial-serif headings + clean Hebrew sans, Dusty-Rose pill CTAs, thin hairlines, and airy, low-shadow surfaces
-- **Ivory (light) is the default theme**; a soft, warm botanical **dark** theme is available via the toggle (remembers the visitor's choice)
+- **Ivory-first visual system** with a calm, fixed brand palette and no alternate dark treatment
 - Editorial-botanical type system (Frank Ruhl Libre + Heebo + Cormorant Garamond, Hebrew-first)
 - WhatsApp ordering flow — form data is never stored
 - Native Share button (`navigator.share`) with copy-link fallback
