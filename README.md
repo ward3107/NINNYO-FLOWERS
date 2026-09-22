@@ -21,7 +21,7 @@ Ordering runs entirely through a pre-filled **WhatsApp** message — no backend.
 
 ## What's on the page
 
-- **Brand logo** — ornate gold *NINNYO FLOWERS* wordmark used across the header, the social share card, and the app / home-screen icons (`ninnyo-flowers-logo.png`, `header-wordmark.png`).
+- **Brand logo** — clean *NINNYO / FLOWERS* wordmark set in Botanical Green in the header (per the brand system). The raster wordmark and logo files (`ninnyo-flowers-logo.png`, `header-wordmark.png`) are still used for the social share card and the app / home-screen icons.
 - **Hero** — brand + location kicker, headline, quick contact, and the Friday delivery offer (79 ₪ incl. delivery inside Petah Tikva).
 - **Bouquet picker (`#pick`)** — 8 hand-named bouquets at 79 ₪ each (רוני / גלי / נוגה / טל / ליבי / ניצן / יערה / שחר). **Multi-select cart** with per-bouquet quantity steppers, a live summary chip, a "המשך להזמנה" button, and a **sticky mini-cart** that follows while browsing. The whole selection is itemized (per-item + total) into the WhatsApp order.
 - **Rich order form** — recipient, occasion, timing, destination, sender name, recipient phone, secret-surprise toggle, and notes — all folded into **one** pre-filled WhatsApp message to the shop.
@@ -32,7 +32,8 @@ Ordering runs entirely through a pre-filled **WhatsApp** message — no backend.
 ## Included / tech
 
 - Mobile-first responsive layout
-- Dark / Light theme (remembers the visitor's choice)
+- **Brand system aligned** — Ivory-first palette (Ninnyo Ivory, Warm Paper, Botanical Green, Leaf Green, Dusty Rose, Petal Pink, Ink), editorial-serif headings + clean Hebrew sans, Dusty-Rose pill CTAs, thin hairlines, and airy, low-shadow surfaces
+- **Ivory (light) is the default theme**; a soft, warm botanical **dark** theme is available via the toggle (remembers the visitor's choice)
 - Editorial-botanical type system (Frank Ruhl Libre + Heebo + Cormorant Garamond, Hebrew-first)
 - WhatsApp ordering flow — form data is never stored
 - Native Share button (`navigator.share`) with copy-link fallback
