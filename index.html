@@ -880,6 +880,91 @@
     .bouquet-card:hover .bouquet-media img { transform: scale(1.015); }
     .bouquet-add { border-radius: var(--pill); }
 
+    /* Catalog: truthful product photography, generous scale, minimal chrome. */
+    #pick { background: var(--bg); }
+    #pick .section-head { display: grid; grid-template-columns: 1fr minmax(280px,520px); column-gap: 48px; align-items: end; max-width: none; }
+    #pick .section-head .eyebrow, #pick .section-head h2 { grid-column: 1; }
+    #pick .section-head .lead { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+    #pick .real-photo-note { grid-column: 2; justify-self: start; border: 0; padding: 0; background: transparent; }
+    .bouquet-grid { grid-template-columns: repeat(3,1fr); gap: 34px 20px; }
+    .bouquet-card { border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; overflow: visible; background: transparent; }
+    .bouquet-card:hover { transform: none; border-color: var(--head); }
+    .bouquet-media { border-radius: 8px; }
+    .bouquet-body { padding: 17px 2px 19px; display: grid; grid-template-columns: 1fr auto; column-gap: 16px; }
+    .bouquet-name, .bouquet-desc { grid-column: 1; }
+    .bouquet-name { font-size: 1.45rem; font-weight: 500; }
+    .bouquet-desc { min-height: 0; }
+    .bouquet-foot { grid-column: 2; grid-row: 1 / span 2; margin: 0; flex-direction: column; align-items: end; justify-content: space-between; }
+    .bouquet-add { padding: 6px 18px; }
+    .bouquet-check { top: 12px; inset-inline-start: 12px; width: 30px; height: 30px; box-shadow: none; background: var(--rose-cta); }
+    .bouquet-card.is-selected { border-color: var(--rose); background: transparent; box-shadow: none; }
+    .bouquet-card.is-selected .bouquet-media { outline: 2px solid var(--rose); outline-offset: 3px; }
+
+    /* Friday: one ordering moment, not a card nested inside another card. */
+    .friday-wrap { margin-top: 0; background: var(--bg-soft); }
+    .friday-card { min-height: 0; grid-template-columns: .88fr 1.12fr; border: 0; border-radius: 0; box-shadow: none; background: transparent; overflow: visible; }
+    .friday-copy { padding: 76px 0 76px clamp(34px,5vw,76px); }
+    .friday-copy::before { display: none; }
+    .friday-title { max-width: 11ch; font-weight: 500; }
+    .friday-title em { color: inherit; font-style: normal; font-weight: inherit; }
+    .price-line { padding-block: 18px; border-block: 1px solid var(--line-strong); }
+    .quick-order { margin-top: 42px; padding: 28px 0 0; border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+    .quick-order-head .badge { border: 0; padding: 0; color: var(--leaf); }
+    .field input, .field select, .field textarea { border-radius: 6px; background: var(--surface-solid); }
+    .friday-photo { min-height: 940px; }
+    .friday-photo img { object-position: center; }
+    .friday-photo::after { display: none; }
+
+    /* Delivery: a useful ruled list instead of three promotional cards. */
+    #delivery .section-head { max-width: 880px; }
+    .delivery-grid { display: block; border-top: 1px solid var(--line-strong); }
+    .delivery-card { min-height: 0; display: grid; grid-template-columns: 52px 72px minmax(190px,.7fr) 1fr; align-items: center; gap: 18px; padding: 24px 0; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+    .delivery-card:hover { transform: none; box-shadow: none; border-color: var(--line-strong); }
+    .delivery-card .num { position: static; grid-column: 1; color: var(--leaf); opacity: .7; }
+    .delivery-card .icon { grid-column: 2; grid-row: 1; width: 48px; height: 48px; margin: 0; border-radius: 50%; background: transparent; border: 1px solid var(--line-strong); }
+    .delivery-card h3 { grid-column: 3; grid-row: 1; margin: 0; font-size: 1.5rem; font-weight: 500; }
+    .delivery-card p { grid-column: 4; grid-row: 1; margin: 0; max-width: 56ch; }
+    .story-strip { margin-top: 38px; padding: 26px 0; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+
+    /* Gallery: documentary, asymmetric, captions live outside the photographs. */
+    .gallery { grid-template-columns: 1.18fr .82fr; grid-template-rows: repeat(2,minmax(280px,360px)); gap: 34px 20px; }
+    .gallery-card { min-height: 0; margin: 0; border: 0; border-radius: 0; overflow: visible; box-shadow: none; display: grid; grid-template-rows: 1fr auto; gap: 12px; }
+    .gallery-card:first-child { grid-row: 1 / span 2; }
+    .gallery-card img { min-height: 0; border-radius: 8px; }
+    .gallery-card:hover img { transform: none; }
+    .gallery-card .caption { position: static; padding: 0; border-radius: 0; background: transparent; color: var(--text); backdrop-filter: none; }
+    .gallery-card .caption strong { font-weight: 500; font-size: 1.12rem; }
+    .gallery-card .caption small { color: var(--muted); opacity: 1; }
+
+    /* Emotional pause: one message, one truthful photograph. */
+    .reason-grid { grid-template-columns: .72fr 1.28fr; gap: clamp(40px,7vw,96px); }
+    .reason-photo { min-height: 680px; border: 0; border-radius: 8px; box-shadow: none; }
+    .reason-photo::after { background: linear-gradient(180deg,transparent 68%,rgba(41,43,39,.48)); }
+    .reason-quote { font-weight: 500; }
+
+    .info-grid { grid-template-columns: repeat(2,1fr); gap: 0 36px; border-top: 1px solid var(--line-strong); }
+    .info-card { min-height: 0; display: grid; grid-template-columns: 44px 1fr; column-gap: 16px; padding: 24px 0; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+    .info-card:hover { transform: none; border-color: var(--line-strong); }
+    .info-card .small-icon { grid-row: 1 / span 2; margin: 0; color: var(--rose); }
+    .info-card strong { margin: 0 0 3px; font-size: 1.16rem; font-weight: 500; }
+
+    .faq-list { max-width: none; gap: 0; border-top: 1px solid var(--line-strong); }
+    .faq-item { border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+    .faq-item[open] { border-color: var(--line-strong); }
+    .faq-item summary { padding: 21px 0; font-size: 1.18rem; font-weight: 500; }
+    .faq-item .faq-a { max-width: 68ch; padding: 0 0 22px; }
+
+    .contact-grid { gap: clamp(38px,6vw,88px); }
+    .contact-card, .location-card { padding: 30px 0; border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; background: transparent; }
+    .location-card::before { display: none; }
+    .contact-link { padding: 15px 0; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; }
+    .contact-link:hover { transform: none; background: transparent; border-color: var(--rose); }
+    #community { padding-top: 0; }
+    #community .story-strip { margin-top: 0; }
+
+    main > section:not(.hero) .reveal,
+    main > section:not(.hero) .stagger > * { opacity: 1; transform: none; transition: none; }
+
     @media (max-width: 980px) {
       .nav { width: calc(100% - 28px); }
       .hero { min-height: 220svh; }
@@ -888,6 +973,15 @@
       .hero-copy .lead { margin-inline: 0; }
       .cta-row, .trust-row { justify-content: flex-start; }
       .hero h1 { max-width: 10ch; }
+      #pick .section-head { grid-template-columns: 1fr; }
+      #pick .section-head .eyebrow, #pick .section-head h2, #pick .section-head .lead, #pick .real-photo-note { grid-column: 1; grid-row: auto; }
+      .bouquet-grid { grid-template-columns: repeat(2,1fr); }
+      .friday-card { grid-template-columns: 1fr; }
+      .friday-copy { padding: 58px 0; }
+      .friday-photo { min-height: 540px; }
+      .delivery-card { grid-template-columns: 44px 58px 1fr; }
+      .delivery-card p { grid-column: 3; grid-row: 2; }
+      .gallery { grid-template-rows: repeat(2,minmax(240px,320px)); }
     }
 
     @media (max-width: 640px) {
@@ -904,6 +998,25 @@
       .trust-row { overflow: visible; flex-wrap: wrap; }
       .trust-pill { margin-inline-end: 16px; }
       .bouquet-media { aspect-ratio: 4 / 3; }
+      .bouquet-grid { grid-template-columns: repeat(2,1fr); gap: 26px 12px; }
+      .bouquet-body { display: flex; padding: 12px 0 15px; }
+      .bouquet-foot { flex-direction: row; align-items: center; margin-top: 7px; }
+      .bouquet-name { font-size: 1.18rem; }
+      .bouquet-add { padding: 5px 12px; }
+      .friday-copy { padding: 48px 0; }
+      .friday-photo { min-height: 420px; }
+      .delivery-card { grid-template-columns: 38px 1fr; gap: 12px; padding: 22px 0; }
+      .delivery-card .icon { display: none; }
+      .delivery-card h3 { grid-column: 2; }
+      .delivery-card p { grid-column: 2; grid-row: 2; }
+      .gallery { grid-template-columns: 1fr; grid-template-rows: none; gap: 34px; }
+      .gallery-card:first-child { grid-row: auto; }
+      .gallery-card { min-height: 0; }
+      .gallery-card img { aspect-ratio: 4 / 5; }
+      .reason-grid { grid-template-columns: 1fr; }
+      .reason-photo { min-height: 520px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .contact-grid { gap: 18px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1193,15 +1306,9 @@
     <section class="section reason-section">
       <div class="container reason-grid">
         <div>
-          <span class="eyebrow reveal">לכל רגע מיוחד</span>
-          <h2 class="reveal">אנחנו שם בשבילך.</h2>
-          <p class="lead reveal">לפעמים צריך מחווה גדולה. לפעמים רק להזכיר למישהו שחושבים עליו. בשני המקרים — פרחים עושים את העבודה.</p>
-          <div class="reason-list stagger reveal">
-            <div class="reason-item"><div class="r-icon">♡</div><div><strong>לבת / בן זוג</strong><span>הפתעה רומנטית בלי סיבה מיוחדת.</span></div></div>
-            <div class="reason-item"><div class="r-icon">✿</div><div><strong>לאמא או לסבתא</strong><span>דרך יפה להגיד תודה ולהראות אהבה.</span></div></div>
-            <div class="reason-item"><div class="r-icon">✦</div><div><strong>לאירוע מיוחד</strong><span>מחווה שמכניסה צבע ורגע של וואו.</span></div></div>
-            <div class="reason-item"><div class="r-icon">⌂</div><div><strong>לעסק או למשרד</strong><span>משלוח מכובד לעובדים, לקוחות או שותפים.</span></div></div>
-          </div>
+          <span class="eyebrow reveal">לא צריך סיבה גדולה</span>
+          <h2 class="reveal">לפעמים פשוט מביאים פרחים.</h2>
+          <p class="lead reveal">לאמא, למישהו שאוהבים, או לבית. אתם בוחרים זר — אנחנו דואגים שהוא יגיע.</p>
         </div>
         <div class="reason-photo reveal"><img src="red-bouquet.webp" srcset="red-bouquet-thumb.webp 297w, red-bouquet.webp 1087w" sizes="(max-width:980px) 100vw, 55vw" width="1087" height="1536" alt="זר ורדים אדומים למשלוח הפתעה" loading="lazy" decoding="async"><div class="reason-quote">פרחים שמדברים מהלב.<br>אנחנו רק דואגים שהם יגיעו.</div></div>
       </div>
