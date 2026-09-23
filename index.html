@@ -638,8 +638,15 @@
     .footer-social a:hover { border-color: var(--gold); transform: translateY(-2px); }
     .blessing { font-family: var(--font-head); color: var(--gold); letter-spacing: .02em; font-weight: 700; font-size: 1.05rem; }
     .creator-credit { width: 100%; margin: 0; text-align: center; font-size: .88rem; }
+    .creator-credit strong { display: inline-flex; align-items: baseline; min-height: 1.4em; }
+    .creator-typewriter { white-space: pre; }
+    .creator-was { display: none; }
+    .creator-credit.is-complete .creator-was { display: inline; }
+    .creator-caret { display: inline-block; width: 1px; height: 1em; margin-inline-start: 3px; background: currentColor; opacity: 0; transform: translateY(2px); }
+    .creator-credit.is-typing .creator-caret { opacity: 1; animation: creatorCaret .68s steps(1,end) infinite; }
     .creator-credit a { color: var(--ink); font-weight: 700; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
     .creator-credit a:hover { color: var(--gold); }
+    @keyframes creatorCaret { 0%,48% { opacity: 1; } 49%,100% { opacity: 0; } }
 
     /* ---------- floating / mobile ---------- */
     .float-wa {
@@ -1469,7 +1476,7 @@
       <div><div class="mini-brand" style="margin-bottom:12px"><strong>NINNYO</strong><span>FLOWERS</span></div><span>פרחים • משלוחים • רגעים מיוחדים</span></div>
       <div class="footer-social"><a href="https://www.instagram.com/ninio_flowers/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@ninio_flowers" target="_blank" rel="noopener">TikTok</a><a href="mailto:shlimanda91@gmail.com">Email</a><a href="/accessibility.html">הצהרת נגישות</a></div>
       <div class="blessing">שבת שלום ומבורכת ♡</div>
-      <p class="creator-credit" dir="ltr"><strong>Made with love ❤️ by <a href="https://waseemp.vercel.app/" target="_blank" rel="noopener noreferrer">Was</a></strong></p>
+      <p class="creator-credit" dir="ltr" aria-label="Made with love by Was"><strong><span class="creator-typewriter" data-text="Made with love ❤️ by Was" aria-hidden="true">Made with love ❤️ by Was</span><a class="creator-was" href="https://waseemp.vercel.app/" target="_blank" rel="noopener noreferrer">Was</a><span class="creator-caret" aria-hidden="true"></span></strong></p>
     </div>
   </footer>
 
@@ -1695,6 +1702,48 @@
         requestRevealSweep();
       } else {
         document.querySelectorAll('.reveal,.stagger,.motion-reveal').forEach(el=>el.classList.add('is-visible'));
+      }
+
+      const creatorCredit=document.querySelector('.creator-credit');
+      const creatorTypewriter=document.querySelector('.creator-typewriter');
+      const creatorWas=document.querySelector('.creator-was');
+      let creatorTypingStarted=false;
+      function completeCreatorSignature(){
+        if(!creatorCredit || !creatorTypewriter || !creatorWas) return;
+        creatorTypewriter.textContent='Made with love ❤️ by ';
+        creatorCredit.classList.remove('is-typing');
+        creatorCredit.classList.add('is-complete');
+      }
+      function typeCreatorSignature(){
+        if(creatorTypingStarted || !creatorCredit || !creatorTypewriter) return;
+        creatorTypingStarted=true;
+        creatorCredit.classList.add('is-typing');
+        creatorTypewriter.textContent='';
+        const text=creatorTypewriter.dataset.text || 'Made with love ❤️ by Was';
+        const letters=typeof Intl.Segmenter==='function'
+          ? [...new Intl.Segmenter(undefined,{granularity:'grapheme'}).segment(text)].map(part=>part.segment)
+          : Array.from(text);
+        let letterIndex=0;
+        function typeNextLetter(){
+          letterIndex+=1;
+          creatorTypewriter.textContent=letters.slice(0,letterIndex).join('');
+          if(letterIndex<letters.length) setTimeout(typeNextLetter,72);
+          else setTimeout(completeCreatorSignature,180);
+        }
+        typeNextLetter();
+      }
+      if(creatorCredit && creatorTypewriter){
+        if(reduce) completeCreatorSignature();
+        else if('IntersectionObserver' in window) {
+          creatorTypewriter.textContent='';
+          const creatorObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+            if(entry.isIntersecting){
+              creatorObserver.disconnect();
+              typeCreatorSignature();
+            }
+          }),{threshold:.45});
+          creatorObserver.observe(creatorCredit);
+        } else completeCreatorSignature();
       }
 
       function upcomingFriday(){
