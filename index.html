@@ -1020,12 +1020,12 @@
 
     @media (max-width: 640px) {
       .nav { width: calc(100% - 20px); border-radius: 0; margin-top: 0; }
-      .hero { min-height: 210svh; padding-top: 0; }
+      .hero { min-height: 145svh; padding-top: 0; }
       .hero-grid { top: calc(var(--promo-h) + var(--header-h)); min-height: calc(100svh - var(--promo-h) - var(--header-h)); align-content: center; padding-inline: 20px; }
       .hero h1 { font-size: clamp(3.5rem,17vw,5rem); max-width: 8ch; }
       .hero-copy { width: 100%; padding-block: 22px 0; }
       .hero-kicker { margin-bottom: 20px; }
-      .hero-media::after { background: linear-gradient(180deg, rgba(244,240,232,.96) 0%, rgba(244,240,232,.84) 46%, rgba(244,240,232,.4) 72%, rgba(244,240,232,.12) 100%); }
+      .hero-media::after { background: linear-gradient(270deg, rgba(244,240,232,.94) 0%, rgba(244,240,232,.82) 38%, rgba(244,240,232,.34) 70%, rgba(244,240,232,.08) 100%); }
       .hero-photo img { object-position: 42% center; }
       .hero-caption { inset-inline-end: 20px; bottom: 14px; }
       .bloom-progress { inset-inline-start: 20px; bottom: 18px; }
@@ -1523,7 +1523,8 @@
       };
       function readMotionTarget(){
         if(!hero || reduce) return;
-        const travel=Math.max(1,hero.offsetHeight-window.innerHeight);
+        const stickyVisual=hero.querySelector('.hero-grid');
+        const travel=Math.max(1,hero.offsetHeight-(stickyVisual ? stickyVisual.offsetHeight : window.innerHeight));
         const raw=Math.max(0,Math.min(1,(window.scrollY-hero.offsetTop)/travel));
         bloomTarget=easeInOutCubic(raw);
       }
@@ -1558,7 +1559,8 @@
         hero.style.setProperty('--bud-opacity',bud.toFixed(3));
         hero.style.setProperty('--opening-opacity',opening.toFixed(3));
         hero.style.setProperty('--bloom-opacity',bloom.toFixed(3));
-        const copyFade=1-smoothstep(.5,.82,progress);
+        const mobileHero=window.matchMedia('(max-width: 640px)').matches;
+        const copyFade=1-smoothstep(mobileHero?.68:.5,mobileHero?.9:.82,progress);
         hero.style.setProperty('--hero-copy-opacity',copyFade.toFixed(3));
         hero.style.setProperty('--hero-copy-y',`${(-22*(1-copyFade)).toFixed(1)}px`);
         updateFlowers();
